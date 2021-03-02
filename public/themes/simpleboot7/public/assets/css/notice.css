@@ -1,0 +1,33 @@
+.notice-content{
+    margin: 10px 0;
+    background-color: #fff;
+    padding: 10px 20px;
+    min-height: 400px;
+}
+.notice-content .notice-item {
+    font-family: 'Arial Normal', 'Arial';
+    font-weight: 400;
+    font-style: normal;
+    font-size: 13px;
+    letter-spacing: normal;
+    color: #333333;
+    font-size: 14px;
+    text-align: left;
+    height: 50px;
+    line-height: 50px;
+    border-bottom: 1px solid rgba(230, 239, 255, 1);
+   
+}
+
+
+.notice-content .notice-item > a  span{
+    transition: 0.3s linear;
+    display: block;
+}
+.notice-content .notice-item > a  span:nth-child(1){
+    float: left;
+}
+.notice-content .notice-item:hover > a span {
+    color: rgb(24, 90, 202);
+    transform: translateY(-5px);
+}

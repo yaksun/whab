@@ -1,0 +1,60 @@
+#lib_Tab1_sx{width:692px;margin:0px;padding:0px;margin-bottom:15px; overflow:hidden;}
+.lib_tabborder_sx{border:1px solid #2F6699;}
+.lib_Menubox_sx {line-height:28px;position:relative; float:left; width:131px; height:203px;border-right:1px solid #fff;}
+.lib_Menubox_sx ul{margin:0px;padding:0px;list-style:none; position:absolute; height:25px;text-align:center;}
+.lib_Menubox_sx li{display:block;cursor:pointer;width:132px;color:#fff;font-size:16px;margin-bottom:1px;height:67px;line-height:67px; background-color:#2F6699}
+.li-img{width:25px;height:25px;position:absolute;margin-top:20px;margin-left:-5px;}
+/*
+.lib_Menubox_sx li.hover{padding:0px;background:#fff;width:132px;border-bottom:1px solid #2F6699; border-right:0;
+color:#2F6699;height:67px;line-height:67px;}
+*/
+.lib_Menubox_sx li a{color:#fff;}
+.lib_Menubox_sx li.hover{ color:#000; background:#fff;}
+.lib_Menubox_sx li.hover a{color:#000;}
+
+
+.lib_Contentbox_sx{margin-top:0px; border-top:none;padding:0px; border-left:0; margin-left:130px;}
+a{text-decoration:none;}
+img{border:none;}
+
+/**
+ * 第四个位置选项卡位置
+ */
+.news_position_4{width:1000px;height: 205px;}
+.news-module1_l_4{width: 700px;height: 205px;float: left;}
+.news-module1_r_4{width: 298px;height: 203px;float: left;border: 1px solid #2F6699;}
+/*信息采纳排行*/
+.news-caina.caina-col-3{width:298px; height:200px;overflow:hidden; float:left; margin-right:10px;}
+
+.news_tab_4{width: 435px; border: 1px solid #2F6699;height: 208px;float: left;margin-left: 5px;}
+
+#lib_Tab1_sx_4{width:423px;margin:0px;padding:0px;margin-bottom:15px; overflow:hidden;}
+.lib_tabborder_sx{border:1px solid #2F6699;}
+.lib_Menubox_sx_4 {line-height:28px;position:relative; float:left; width:131px; height:208px;border-right:1px solid #fff;}
+.lib_Menubox_sx_4 ul{margin:0px;padding:0px;list-style:none; position:absolute; height:25px;text-align:center;}
+.lib_Menubox_sx_4 li{display:block;cursor:pointer;width:132px;color:#fff;font-size:16px;margin-bottom:1px;height:40.8px;line-height:40.8px; background-color:#2F6699}
+.li-img_4{width:25px;height:25px;position:absolute;margin-top:10px;margin-left:-5px;}
+/*
+.lib_Menubox_sx_4 li.hover{padding:0px;background:#fff;width:132px;border-bottom:1px solid #2F6699; border-right:0;
+color:#2F6699;height:40.8px;line-height:40.8px;}
+
+.lib_Menubox_sx_4 li a.hover{color:#000;background:#fff;}*/
+.lib_Menubox_sx_4 li a{color:#fff;}
+.lib_Contentbox_sx_4{margin-top:0px; border-top:none;padding:0px; border-left:0; margin-left:130px;}
+
+.lib_Menubox_sx_4 li a{color:#fff;}
+.lib_Menubox_sx_4 li.hover{ color:#000; background:#fff;}
+.lib_Menubox_sx_4 li.hover a{color:#000;}
+
+/*竖型选项卡样式*/
+.newslist-tab4{display:block; padding:8px;}
+.newslist-tab4 ul{}
+.newslist-tab4 li{border-bottom:1px dotted #dedede; position:relative; padding:0 80px 0 14px; background:url(../images/words11_list_ico.png) 0px  10px no-repeat;}
+.newslist-tab4 li a{display:block; height:32px; width:100%; line-height:32px; font-size:14px; color:#666;word-break:break-all;
+display:-webkit-box;
+-webkit-line-clamp:1;
+-webkit-box-orient:vertical;
+overflow:hidden;margin-left:5px;}
+.newslist-tab4 li a:hover{color:#2F6699;}
+.newslist-tab4 li span{position:absolute; right:0; top:0; line-height:32px; color:#bbb; text-align:center;}
+.newslist-tab4 li:last-child{border:0;}

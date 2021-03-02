@@ -1,0 +1,58 @@
+<!DOCTYPE html >
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$cateItem.name}</title>
+<include file="public@head"/>
+<link href="__TMPL__/public/assets/css/list.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="__TMPL__/public/assets/css/memberStyle.css">
+<link rel="stylesheet" href="__TMPL__/public/assets/css/education.css">
+</head>
+<body >
+    <div class="main" >
+    <include file="public@nav"/>
+    <div class="container container_col">
+        <div class="education-top">
+            <div class="top-header education-tips">
+                <div  class="current ax_default" >当前位置 > 
+                    <a href="/">首页</a> > 
+                    <a class="active" href="{:url('portal/Category/index',array('cid'=>$categoryId))}?page=1">{$cateItem.name}</a> 
+                </div>
+            </div>
+           <div class="education-class">
+              <div class="eduction-left">
+                  <div>
+                      <img src="__TMPL__/public/assets/images/new/logo2.png" >
+                  </div>
+              </div>
+              <div class="eduction-right" condition="!empty($education)">
+                <?php echo htmlspecialchars_decode($education['post_content']); ?>
+              </div>
+           </div>   
+        </div>
+        <div class="education-bottom">
+            <div class="top-header education-tips">
+                <div  class="current ax_default" >培训项目</div>
+            </div>
+            <div class="education-container">
+                <foreach name='categorylist' item='vo' key='index'>
+                    <a class="education-item ax_default" href="{:url('portal/List/index?',array('cid'=>$categoryId,'sid'=>$vo.id))}?page=1">
+                        <div>
+                        <switch name="index" >
+                            <case value="0"><img src="__TMPL__/public/assets/images/new/u1502.png" ></case>
+                            <case value="1"><img src="__TMPL__/public/assets/images/new/u1506.png" ></case>
+                            <case value="2"><img src="__TMPL__/public/assets/images/new/u1510.png" ></case>
+                            <case value="3"><img src="__TMPL__/public/assets/images/new/u1514.png" ></case>
+                            <default />
+                        </switch>
+                        </div>
+                        <span>{$vo.name}</span>
+                    </a>
+                </foreach>
+            </div>
+        </div>
+    </div>   
+    </div>
+<include file="public@footer"/>
+
+</body>
+</html>

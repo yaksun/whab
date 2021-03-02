@@ -1,0 +1,212 @@
+.ability-warpper{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.ability-warpper .header{
+    height: 100px;
+    line-height: 100px;
+    text-align: center;
+    font-size: 42px;
+    font-family: 'Arial Normal', 'Arial';
+    font-weight: 400;
+    font-style: normal;
+    background-image: url(../images/new/u1723.svg);
+    background-size: cover;
+}
+.ability-warpper .desc{
+    height: 270px;
+    display: flex;
+    margin: 15px 0;
+
+}
+
+.ability-warpper .desc .desc-right{
+    width: 280px;
+}
+.ability-warpper .desc .desc-right>a{
+    display: block;
+}
+.ability-warpper .desc .desc-right>a>img{
+    height: 100%;
+    display: block;
+} 
+
+.ability-warpper .desc .desc-left{
+    flex:1;
+    margin-right: 15px;
+}
+.ability-warpper .desc .desc-left .desc-top{
+    height: 48px;
+    font-size: 18px;
+    background-color: rgba(230, 239, 255, 1);
+    line-height:48px ;
+    margin-bottom: 15px;
+}
+
+
+
+.ability-warpper .desc .desc-left .desc-bottom{
+    display: flex;
+}
+
+.ability-warpper .desc .desc-left .desc-bottom .desc-img{
+    width: 167px;
+    height: 191px;
+    background-image: url(../images/new/u1728.jpg);
+    margin-right: 15px;
+}
+
+.ability-warpper .desc .desc-left .desc-bottom .desc-content{
+    flex: 1;
+    font-size: 14px;
+    text-align: left;
+}
+.desc-content >p{
+    line-height: 1.8em;
+    text-align: left;
+}
+.desc-content >p >span{
+    font-family:  'Times New Roman', Times, serif;
+    font-size: 18px;
+}
+
+.ability-warpper .process{
+    height: 240px;
+    background-color: #fff;
+}
+
+.ability-warpper .process-header{
+    height: 48px;
+    font-size: 18px;
+    background-color: rgba(230, 239, 255, 1);
+    line-height:48px ;
+}
+.ability-warpper .process-content{
+    height: calc( 100% - 48px );
+    display: flex;
+    flex-shrink: 0;
+    justify-content: space-between;
+    align-items: center;
+    padding:15px 15px 0 15px;
+    box-sizing: border-box;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+
+.ability-warpper .process-content .process-item{
+    width: 130px;
+}
+
+.ability-warpper .process-content .process-item>img{
+    width: 100%;
+    display: block;
+} 
+
+.ability-warpper .process-content .process-item>div{
+    height: 30px;
+    width: 100%;
+    text-align: center;
+    line-height: 30px;
+    background-color: rgba(147, 183, 254, 1);
+    font-size: 13px;
+}
+
+.detail{
+    margin: 15px 0;
+    height: 400px;
+    border: 1px solid #ccc;
+    padding:20px 15px 30px 15px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    background-color: #fff;
+}
+
+.detail .detail-left{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.detail .detail-middle{
+    width: 638px;
+    border:1px solid #ccc;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.detail .detail-middle .middle-tab-header{
+    width: 100%;
+    display: flex;
+    height: 48px;
+    line-height: 48px;
+    border-bottom: 1px solid #ccc;
+    padding: 0 15px;
+    box-sizing: border-box;
+}
+.detail .detail-middle .middle-tab-header div{
+    margin:0 8px;
+    font-size: 14px;
+    padding-top: 10px;
+}
+.detail .detail-middle .middle-tab-header .tab-header-active{
+    color: #185ACA;
+    position: relative;
+}
+
+.detail .detail-middle .middle-tab-header .tab-header-active::before{
+    position: absolute;
+    content: "";
+    width: 56px;
+    height: 4px;
+    background-color: rgba(24, 90, 202, 1);
+    left: 0;
+    bottom:-3px;
+    border: none;
+    border-radius: 2px;
+
+}
+.detail .detail-middle .middle-tab-content div{
+    display: none;
+}
+.detail .detail-middle .middle-tab-content .tab-content-active{
+    display: block;
+}
+
+.detail .detail-right{
+    width: 320px;
+    height: 100%;
+}
+.detail .detail-right .detail-right-title{
+    height: 48px;
+    background-color: rgba(230, 239, 255, 1);
+    position: relative;
+    font-size: 18px;
+    background-color: rgba(230, 239, 255, 1);
+    line-height:48px ;
+}
+
+.detail .detail-right .detail-right-content{
+    height: calc( 100% - 48px );
+    box-sizing: border-box;
+    border-left:1px solid #ccc;
+    border-right:1px solid #ccc;
+    border-bottom:1px solid #ccc;
+    width: 100%;
+    padding: 20px 7px;
+}
+
+.detail .detail-right .detail-right-content .col-md-4{
+    margin-bottom: 10px;
+}
+
+
+.detail .detail-right .detail-right-content .detail-right-item{
+    height: 36px;
+    border: 1px solid #ccc;
+    text-align: center;
+    line-height: 36px;
+}
+

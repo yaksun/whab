@@ -1,0 +1,48 @@
+.membership-class{
+    margin: 10px 0;
+    padding: 10px 60px;
+    background-color: #fff;
+    min-height: 400px;
+}
+.membership-warpper{
+    padding: 10px 60px;
+}
+.membership-warpper  p >span{
+    line-height: 1.8em;
+}
+
+.membership-warppe p >img{
+    max-width: 100%; /*图片自适应宽度*/
+}
+.membership-class .membership-warpper .title{
+    font-family: 'Arial Black', 'Arial Normal', 'Arial';
+    font-weight: 900;
+    color: #185ACA;
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.membership-title{
+    position: relative;
+    width: 100%;
+}
+.membership-title .right-input{
+    display: flex;
+    cursor: pointer;
+    position: absolute;
+    width: 100px;
+    height: 100%;
+    top:0;
+    justify-content: center;
+    align-items: center;
+    right: 15px;
+    font-size: 14px;
+    color: #FFFFFF;
+    font-family: 'Arial Normal', 'Arial';
+    font-weight: 400;
+    font-style: normal;
+    font-size: 13px;
+    letter-spacing: normal;
+    background-image: url(../images/new/u1647_mouseOver.svg);
+}

@@ -1,0 +1,112 @@
+<!DOCTYPE html >
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{
+<include file="public@head"/>$cateItem.name}</title>
+<link href="__TMPL__/public/assets/css/list.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="__TMPL__/public/assets/css/leave.css">
+</head>
+<body style="background:#EDEDED;">
+    <div class="leave-warpper" >
+    <include file="public@nav"/>
+   <div class="logo-warpper"></div>
+  
+    <div class="nav-warpper">
+        <a href="#qywh">
+          <img src="__TMPL__/public/assets/images/new/qywh.png" >
+          <p>企业文化</p>
+          <em>COMPANY CULTURE</em>
+        </a>
+        <a href="#wfxm">
+         <img src="__TMPL__/public/assets/images/new/fwxm.png" >
+         <p>服务项目</p>
+         <em>PRODUCT CENTER</em>
+        </a>
+        <a href="#ryzz">
+         <img src="__TMPL__/public/assets/images/new/ryzz.png" >
+         <p>荣誉资质</p>
+         <em>HONOR</em>
+        </a>
+        <a href="#khal">
+         <img src="__TMPL__/public/assets/images/new/khal.png" >
+         <p>客户案例</p>
+         <em>CLASSIC CASE</em>
+        </a>
+        <a href="#lxwm">
+         <img src="__TMPL__/public/assets/images/new/lxwm.png" >
+         <p>联系我们</p>
+         <em>CONTECT US</em>
+        </a>
+    </div>
+    <foreach name="catelist" item="vo">
+      <if condition="$vo['name']==='企业文化'">
+        <div class="one-warpper"  id="qywh">
+          <div class="qywh-left">
+            <img src="__TMPL__/public/assets/images/new/qywh2.png" >
+          </div>
+          <div class="qywh-right">
+            <div class="qywh-title">
+              <h3>福建省诚信保安服务有限公司</h3>
+              <p></p>
+            </div>
+            <div class="qywh-detail"></div>
+          </div>
+        </div>
+      </if>
+      <if condition="$vo['name']==='服务项目'" >
+        <div class="two-warpper" id="wfxm">
+          <div class="wfxm-title">服务项目</div>
+                     <!--无限滚动图片开始-->
+                <div class="scroll-warpper" >
+                  <div class="marquee-container">
+                  <div id="marquee-wrap"> 
+                    <div id="indemo"> 
+                      <div id="demo1">
+                        <a ><img src="__TMPL__/public/assets/images/new/p1.png" border="0" /></a> 
+                        <a ><img src="__TMPL__/public/assets/images/new/p2.png" border="0" /></a> 
+                        <a ><img src="__TMPL__/public/assets/images/new/p3.png" border="0" /></a> 
+                        <a ><img src="__TMPL__/public/assets/images/new/p1.png" border="0" /></a> 
+                        <a ><img src="__TMPL__/public/assets/images/new/p2.png" border="0" /></a> 
+                        <a ><img src="__TMPL__/public/assets/images/new/p3.png" border="0" /></a> 
+                      </div> 
+                      <div id="demo2"></div> 
+                    </div> 
+                  </div> 
+                </div>
+                </div>
+                <script> 
+                var speed=20; 
+                var tab=document.getElementById("marquee-wrap"); 
+                var tab1=document.getElementById("demo1"); 
+                var tab2=document.getElementById("demo2"); 
+                tab2.innerHTML=tab1.innerHTML; 
+                function Marquee(){ 
+                if(tab1.offsetWidth-tab.scrollLeft<=0) 
+                tab.scrollLeft-=tab1.offsetWidth 
+                else{ 
+                tab.scrollLeft++; 
+                } 
+                } 
+                var MyMar=setInterval(Marquee,speed); 
+                tab.onmouseover=function() {clearInterval(MyMar)}; 
+                tab.onmouseout=function() {MyMar=setInterval(Marquee,speed)}; 
+                </script> 
+
+                <!--无限滚动图片结束-->
+        </div>
+      </if>
+      <if condition="$vo['name']==='荣誉资质'" >
+        <div class="three-warpper" id="ryzz">
+        </div>
+      </if>
+      <if condition="$vo['name']==='客户案例'" >
+        <div class="four-warpper" id="khal">客户案例</div>
+      </if>
+      <if condition="$vo['name']==='联系我们'">
+        <div class="five-warpper"  id="lxwm">联系我们</div>
+      </if>
+    </foreach>
+  </div>
+<include file="public@footer"/>
+</body>
+</html>

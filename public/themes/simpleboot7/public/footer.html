@@ -1,0 +1,89 @@
+<div class="footer">
+    <div class="footTop">
+        <div class="w-1400">
+            <div class="left">
+                <img style="width:125px;" class="footLogo" src="/themes/simpleboot7/public/assets/images/new/logo2.png">
+                <div class="footList2">
+                   <div class="row">
+                    <div class="col-md-4">
+                        <a href="/portal/list/index/cid/19/sid/104.html">协会简介</a>
+                    </div>
+                    <div class="col-md-4">
+                        <a href="/portal/list/index/cid/19/sid/105.html?page=1">协会章程</a>
+                    </div>
+                    <div class="col-md-4">
+                        <a href="/portal/list/index/cid/20/sid/112.html?page=1">会费标准</a>
+                    </div>
+                   </div>
+                   <div class="row">
+                       <div class="col-md-4">
+                        <a href="/portal/list/index/cid/29/sid/42.html?page=1">下载中心</a>
+                       </div>
+                       <div class="col-md-4">
+                        <a href="/portal/list/index/cid/11/sid/110.html?page=1">入会申请</a>
+                       </div>
+                       <div class="col-md-4">
+                        <a href="/portal/list/index/cid/22/sid/189.html?page=1">协会服务</a>
+                       </div>
+                   </div>
+                   
+                </div>
+            </div>
+            <div class="right">
+                <div class="footContact">
+                    <h3>联系我们</h3>
+
+                    <p>地址：武汉市汉阳区江城大道欣隆壹号公馆5B11楼</p>
+
+                    <p>电话：027-59397715</p>
+                    <p>手机号：18971553999</p>
+
+                    <p>E-mail：44233870@qq.com</p>
+                </div>
+                <!-- <img class="ma" src="/theme/default/images/ma.jpg"> -->
+            </div>
+        </div>
+    </div>
+    <div class="footBottom">
+        <div class="w-1400">
+            <p>
+                <span class="beian"> <a href="https://beian.miit.gov.cn/" target="_blank">鄂ICP备2021002905号-1</a></span>|
+                <span>武汉市安保协会(Wuhan Security Industry Association) 版权所有</span>|
+                <span>Powered by <a href="http://www.gzjpe.com" target="_blank">
+                    Jinpeng Electronic 
+                </a> <a target="_blank" href="http://www.gzjpe.com">湖北金鹏信息系统有限公司</a></span>
+            </p>
+            <!--友情链接-->
+            <div class="link">
+                <span>友情链接<i class="iconfont icon-fengmianyetubiaoiconfontwenjian-"></i> </span>
+                <ul class="linkList">
+                                        <li><a target="_blank" href="https://www.mps.gov.cn">中华人民共和国公安部</a></li>
+                                        <li><a target="_blank" href="http://www.zgba.org">中国安保协会</a></li>
+                                        <li><a target="_blank" href="http://www.taagoo.com/3d/s/2998.html">北京市保安服务总公司</a></li>
+                                        <li><a target="_blank" href="http://www.security.sh.cn/">上海保安网</a></li>
+                                        <li><a target="_blank" href="http://www.tjbaxh.cn/page/ShowInfoPage.aspx?ID=e5b33603-e233-4295-a5a8-097ff4412f88">天津市保安协会</a></li>
+                                        <li><a target="_blank" href="http://www.gzssa.com/">广州市保安协会</a></li>
+                                        <li><a target="_blank" href="http://www.zgba.org/newsitem/271462496">山东省保安协会</a></li>
+                                        <li><a target="_blank" href="http://www.fjba.org.cn/">福建保安协会网</a></li>
+                                        <li><a target="_blank" href="http://www.scsbaxh.com/">四川省保安协会网</a></li>
+                                    </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $('.link span').click(function (e) {
+        e.stopPropagation(); //阻止冒泡
+        $('.linkList').slideToggle(200);
+    })
+    $('.linkList a').click(function () {
+        $(this).parents('.linkList').siblings('span').text($(this).text())
+        $('.linkList').slideUp(200);
+    })
+    $(document).on('click', function () {
+        var linkType = $(".linkList").css('display');
+        if (linkType == 'block') {
+            $(".linkList").slideUp();
+        }
+    })
+</script>

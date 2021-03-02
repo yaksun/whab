@@ -1,0 +1,25 @@
+<div class="list-left">
+    <div class="news-title news-left">
+      <div class="news-name tab-nav">
+        <div  class="current" >{$cateItem.name}</div>
+      </div>
+  </div>
+  <div style="height: 48px;" class="fixed-class"></div>
+     <ul class="cate-list">
+      <if condition="$categorylistCount">
+        <foreach name='categorylist' item='vo' key='index'>
+          <if condition="$vo.id==$activecate.id">
+            <li class="cate-item active" ><a href="{:url('portal/List/index?',array('cid'=>$categoryId,'sid'=>$vo.id))}?page=1">
+              <span class="item-title">{$vo.name}</span>
+            </a></li>
+           <else>
+            <li class="cate-item" ><a href="{:url('portal/List/index?',array('cid'=>$categoryId,'sid'=>$vo.id))}?page=1">
+              <span class="item-title">{$vo.name}</span>
+            </a></li>
+           </else>
+         </if>
+       </foreach>
+      </if>
+     </ul>
+
+  </div>

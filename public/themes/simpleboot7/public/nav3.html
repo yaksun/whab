@@ -1,0 +1,35 @@
+
+<div class="header">
+  <img src="__TMPL__/public/assets/images/new/bg.png" >
+  <div class="header-warpper">
+    <div class="logo-img">
+      <img src="__TMPL__/public/assets/images/new/logo.png">
+    </div>
+    <div class="title-img">
+      <img src="__TMPL__/public/assets/images/new/wenzi.png" >
+    </div>
+  </div>
+</div>
+<div class="nav">
+    <ul  id="navul" class="nav-class">
+     <if condition=" $categoryId==='0' ">
+      <li class="active"><a href="/">首页</a></li>
+      <else>
+      <li><a href="/">首页</a></li>
+      </else>
+    </if>
+    <foreach name="categorys" item="vo">
+      <if condition="$vo.id===32">
+        <li class="{$vo.id === $categoryId ? 'active' :'' }"><a target="_blank"  href="http://gaj.wuhan.gov.cn/fwpt/fwpt/login.jsp">{$vo.name}</a></li>
+        <else>
+        <li class="{$vo.id === $categoryId  ? 'active' :'' }"><a  href="{:url('portal/Category/index',array('cid'=>$vo.id))}?page=1">{$vo.name}</a></li>
+        </else>
+      </if>
+    </foreach>
+    </ul>
+  </div>
+  <script  type="text/javascript"> 
+  $(".navbg").capacityFixed();
+  </script>
+
+ 

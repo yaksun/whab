@@ -1,0 +1,79 @@
+<!DOCTYPE html >
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$cateItem.name}</title>
+<include file="public@head"/>
+<link href="__TMPL__/public/assets/css/list.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="__TMPL__/public/assets/css/advance.css">
+<link rel="stylesheet" href="__TMPL__/public/assets/css/unit.css">
+</head>
+<body>
+    <div class="main" >
+    <include file="public@nav"/>
+    <div class="container container_col">
+      <div class="list-warpper">
+        <include file="public@leftnav"/>
+        <div class="list-right">
+          <div class="news-title news-left">
+            <div class="news-name tab-nav">
+              <div  class="current" >当前位置 >
+                <a href="/">首页</a> > 
+                <a href="{:url('portal/Category/index',array('cid'=>$categoryId))}?page=1">{$cateItem.name}</a> >
+                <a class="active" href="{:url('portal/List/index?',array('cid'=>$categoryId,'sid'=>$activecate.id))}?page=1">{$activecate.name}</a> 
+              </div>
+            </div>
+        </div>
+        <div style="height: 48px;"></div>
+         <div class="advancedUnit-class">
+           <div class="advance-top">
+             <img src="__TMPL__/public/assets/images/new/u893.jpg" >
+           </div>
+           <div class="advance-bottom">
+             <foreach name='advancedUnit' item='vo' key='index'>
+              <div class="fieldset-container">
+                <if condition="$index===0" >
+                      <div class="title-warpper">
+                        <span class="title">首届<?php echo mb_substr($vo['name'],0,2); ?></span><span><?php echo mb_substr($vo['name'],2); ?> </span>
+                      </div>  
+                      <div class="advance-content">
+                        <foreach name="$vo['list']" item='mini'>
+                           <div class="col-md-4">
+                            {$mini.name}
+                           </div>
+                        </foreach>
+                      </div>
+                      <img src="__TMPL__/public/assets/images/shiqiang.png">
+                   <else>
+                        <div class="title-warpper">
+                          <span class="title"><?php echo mb_substr($vo['name'],0,2); ?></span><span><?php echo mb_substr($vo['name'],2); ?> </span>
+                        </div>  
+                        <div class="advance-content">
+                          <foreach name="$vo['list']" item='mini'>
+                            <div class="col-md-4">
+                              {$mini.name}
+                              <if condition="!empty($mini['description'])">
+                               <span class="title-desc2">({$mini['description']})</span>
+                              </if>
+                            </div>
+                          </foreach>
+                        </div>
+                        <if condition="mb_substr($vo['name'],0,2)==='十佳'">
+                         <img src="__TMPL__/public/assets/images/shijia.png">
+                          <else>
+                            <img src="__TMPL__/public/assets/images/shiyou.png">
+                          </else>
+                        </if>
+                   </else>
+                 </if>
+                </div>
+             
+             </foreach>
+           </div>
+         </div>    
+        </div>
+      </div>
+    </div>
+    <div class="clearfix"></div>
+<include file="public@footer"/>
+</body>
+</html>

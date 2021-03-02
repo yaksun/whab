@@ -1,0 +1,83 @@
+#browser-modal {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  text-align: center;
+  color: #303233;
+  display: none;
+  position: fixed;
+  z-index: 9999;
+}
+#browser-modal .browser-modal-cover {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #111;
+  opacity: 0.5;
+  z-index: -1;
+}
+#browser-modal .browser-content {
+  width: 700px;
+  margin-top: 120px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 80px;
+  padding-top: 30px;
+  background-color: #fff;
+}
+#browser-modal .browser-content .browser-text .browser-text-title {
+  text-transform: uppercase;
+  font-size: 24px;
+  text-align: center;
+}
+#browser-modal .browser-content .browser-text .browser-text-desc {
+  margin-top: 30px;
+  margin-bottom: 50px;
+  font-size: 14px;
+  text-align: center;
+}
+#browser-modal .browser-content .browser-list {
+  width: 600px;
+  margin: 40px auto;
+  height: 130px;
+}
+#browser-modal .browser-content .browser-list .browser-item {
+  float: left;
+  width: 150px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+#browser-modal .browser-content .browser-list .browser-item a {
+  color: #1897f2;
+  cursor: pointer;
+  display: block;
+}
+#browser-modal .browser-content .browser-list .browser-item a .browser-i-c {
+  background-image: url(../images/new/chrome.jpg);
+}
+#browser-modal .browser-content .browser-list .browser-item a .browser-i-f {
+  background-image: url(../images/new/firefox.jpg);
+}
+#browser-modal .browser-content .browser-list .browser-item a .browser-i-s {
+  background-image: url(../images/new/safari.jpg);
+}
+#browser-modal .browser-content .browser-list .browser-item a .browser-i-e {
+  background-image: url(../images/new/edge.jpg);
+}
+#browser-modal .browser-content .browser-list .browser-item a .browser-pic {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+  background-repeat: no-repeat;
+}
+#browser-modal .browser-content .browser-list .browser-item a h4 {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: 700;
+}

@@ -1,0 +1,221 @@
+<!DOCTYPE html >
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>武汉安保行业协会</title>
+<include file="public@head"/>
+
+
+
+</head>
+<body >
+<div class="main" >
+
+<include file="public@nav"/>
+<div class="form-warpper member-request">
+    <div class="form-header">
+        <div class="back" >
+            返回
+        </div>
+    </div>
+    <div style="height: 60px;margin-bottom: 15px;"></div>
+    <form class="form-horizontal form submit-class" id="form2">
+        <div class="form-group">
+          <label for="inputEmail3" class="col-sm-3 control-label"><span style="color:red;">*&nbsp;</span>公司名称:</label>
+          <div class="col-sm-9">
+            <input type="text" class="form-control" id="inputEmail3" placeholder="" name="company">
+            <div class="tips">公司名称不能为空!</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputPassword3" class="col-sm-3 control-label"><span style="color:red;">*&nbsp;</span>登录账号:</label>
+          <div class="col-sm-9">
+            <input type="text" class="form-control" id="inputPassword3" placeholder="" name="user">
+            <div class="tips">登录账号不能为空!</div>
+          </div>
+        </div>
+        <div class="form-group">
+            <label for="inputPassword4" class="col-sm-3 control-label"><span style="color:red;">*&nbsp;</span>手机号码:</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" id="inputPassword4" placeholder="" name="phone">
+              <div class="tips">手机号码不能为空!</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputPassword5" class="col-sm-3 control-label" ><span style="color:red;">*&nbsp;</span>验证码:</label>
+            <div class="col-sm-9 capture">
+              <input type="text" autocomplete='new-password' class="form-control" id="inputPassword5" placeholder="" name="captcha2" >
+              <a id="inputSuccess2Status" class="code active">获取验证码</a>
+              <span class="code">已发送(60)s</span>
+              <div class="tips">验证码不能为空!</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputPassword6" class="col-sm-3 control-label"><span style="color:red;">*&nbsp;</span>密码:</label>
+            <div class="col-sm-9">
+              <input type="password" autocomplete='new-password' name="pass" class="form-control" id="inputPassword6" placeholder="必须包含字母、数字，至少6个字符，最多30个字符">
+              <div class="tips">密码不能为空!</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputPassword7" class="col-sm-3 control-label"><span style="color:red;">*&nbsp;</span>确认密码:</label>
+            <div class="col-sm-9">
+              <input type="password" autocomplete='new-password' name="confirm_pass" class="form-control" id="inputPassword7" placeholder="请再次确认密码">
+              <div class="tips">确认密码不能为空!</div>
+            </div>
+          </div>
+    
+        <div class="form-group" style="margin-top: 65px;">
+          <div class="col-sm-offset-3 col-sm-6">
+            <button id="submit" class="btn btn-default">提交申请</button>
+          </div>
+        </div>
+      </form>
+</div>
+<div class="clearfix"></div>
+<include file="public@footer"/>
+<script>
+  window.onload = function(){
+    var status2 
+
+    $(".submit-class button[id='submit']").attr("disabled",true);
+    var oBack = document.querySelector('.back')
+        oBack.onclick = function(){
+            window.location.href="javascript:history.go(-1)";
+        }
+
+        $('.member-request .form-control').focus(function(){
+          $(this).blur(function(){
+              if(!$(this).val()){
+                // console.log($(this).parent().children('.tips'))
+                $(this).parent().children('.tips').addClass('active');
+              }else{
+                $(this).parent().children('.tips').removeClass('active');
+              }
+          })
+       })  
+
+       $("input[name='company']").bind('input propertychange',function(){
+         status2 =   $(".submit-class input[name='company']").val() && $(".submit-class input[name='user']").val() && $(".submit-class input[name='phone']").val()  &&  $(".submit-class input[name='pass']").val()  &&  $(".submit-class input[name='confirm_pass']").val() &&  $(".submit-class input[name='captcha2']").val()
+        if(status2){
+          $(".submit-class button[id='submit']").removeAttr("disabled")
+        }else{
+          $(".submit-class button[id='submit']").attr("disabled",true);
+        }
+     })
+       $("input[name='user']").bind('input propertychange',function(){
+        status2 =  $(".submit-class input[name='company']").val() && $(".submit-class input[name='user']").val() && $(".submit-class input[name='phone']").val()  &&  $(".submit-class input[name='pass']").val()  &&  $(".submit-class input[name='confirm_pass']").val() &&  $(".submit-class input[name='captcha2']").val()
+        if(status2){
+          $(".submit-class button[id='submit']").removeAttr("disabled")
+        }else{
+          $(".submit-class button[id='submit']").attr("disabled",true);
+        }
+     })
+
+     $("input[name='phone']").bind('input propertychange',function(){
+      status2 =   $(".submit-class input[name='company']").val() && $(".submit-class input[name='user']").val() && $(".submit-class input[name='phone']").val()  &&  $(".submit-class input[name='pass']").val()  &&  $(".submit-class input[name='confirm_pass']").val() &&  $(".submit-class input[name='captcha2']").val()
+        if(status2){
+          $(".submit-class button[id='submit']").removeAttr("disabled")
+        }else{
+          $(".submit-class button[id='submit']").attr("disabled",true);
+        }
+     })
+   
+     $("input[name='captcha2']").bind('input propertychange',function(){
+      status2 =  $(".submit-class input[name='company']").val() && $(".submit-class input[name='user']").val() && $(".submit-class input[name='phone']").val()  &&  $(".submit-class input[name='pass']").val()  &&  $(".submit-class input[name='confirm_pass']").val() &&  $(".submit-class input[name='captcha2']").val()
+        if(status2){
+          $(".submit-class button[id='submit']").removeAttr("disabled")
+        }else{
+          $(".submit-class button[id='submit']").attr("disabled",true);
+        }
+     })
+
+     $("input[name='pass']").bind('input propertychange',function(){
+      status2 =  $(".submit-class input[name='company']").val() && $(".submit-class input[name='user']").val() && $(".submit-class input[name='phone']").val()  &&  $(".submit-class input[name='pass']").val()  &&  $(".submit-class input[name='confirm_pass']").val() &&  $(".submit-class input[name='captcha2']").val()
+        if(status2){
+          $(".submit-class button[id='submit']").removeAttr("disabled")
+        }else{
+          $(".submit-class button[id='submit']").attr("disabled",true);
+        }
+     })
+
+     $("input[name='confirm_pass']").bind('input propertychange',function(){
+      status2 =   $(".submit-class input[name='company']").val() && $(".submit-class input[name='user']").val() && $(".submit-class input[name='phone']").val()  &&  $(".submit-class input[name='pass']").val()  &&  $(".submit-class input[name='confirm_pass']").val() &&  $(".submit-class input[name='captcha2']").val()
+        if(status2){
+          $(".submit-class button[id='submit']").removeAttr("disabled")
+        }else{
+          $(".submit-class button[id='submit']").attr("disabled",true);
+        }
+     })
+
+       $('#submit').click(function(e){
+          e.preventDefault()
+          var formData2 = new FormData(document.getElementById("form2"));
+     
+          $.ajax({
+            type : "POST",//请求方式,post请求 ,可以改成get请求
+
+            url : '/portal/form/submit',//后台请求地址
+          
+            data:formData2,
+            cache: false,        // 不缓存数据
+            processData: false,  // 不处理数据
+            contentType: false,   // 不设置内容类型
+            success:function(res){
+              layer.alert(res.msg);
+              if(res.code==1){
+                $(".submit-class input[name='company']").val('')
+                $(".submit-class input[name='user']").val('')
+                $(".submit-class input[name='phone']").val('')
+                $(".submit-class input[name='captcha2']").val('')
+                $(".submit-class input[name='pass']").val('')
+                $(".submit-class input[name='confirm_pass']").val('')
+              }
+            }
+          })
+       }) 
+
+       $('#inputSuccess2Status').click(function(){
+         var reg = /^1[0-9]{10}$/
+         var val =  $("input[name='phone']").val()
+        
+         if(!reg.test(val)){
+          layer.alert('手机号格式不正确!')
+          return 
+         }
+        var formData3 = new FormData()
+        formData3.append('phone', val)
+        $.ajax({
+            type : "POST",//请求方式,post请求 ,可以改成get请求
+            url : '/portal/form/getCode',//后台请求地址
+            data:formData3,
+            cache: false,        // 不缓存数据
+            processData: false,  // 不处理数据
+            contentType: false,   // 不设置内容类型
+            success:function(res){
+              if(res && res.indexOf('success')!= -1){
+                var time=60
+                $('.form-warpper .form .capture a.code').removeClass('active')
+                $('.form-warpper .form .capture span.code').addClass('active')
+                var timer = setInterval(function(){
+                  time--
+                  $('.form-warpper .form .capture span.code').html("已发送("+time+")s")
+                  if(time<=0){
+                    clearInterval(timer)
+                    $('.form-warpper .form .capture a.code').addClass('active')
+                    $('.form-warpper .form .capture span.code').removeClass('active')
+                    return
+                  }
+                },1000)
+               
+              }else{
+                layer.alert('验证码发送失败')
+                return
+              }
+            }
+          })
+       })
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,27 @@
+#indemo9 .nav-marquee {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  box-sizing: border-box;
+}
+#indemo9 .nav-marquee .img-warpper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 140px;
+  height: 140px;
+}
+#indemo9 .nav-marquee .img-warpper img {
+  width: 120px;
+  height: 120px;
+  display: block;
+}
+#indemo9 .nav-marquee .text-warpper {
+  flex: 1;
+  margin-top: 15px;
+  font-size: 14px;
+  text-align: center;
+  width: 90%;
+}

@@ -1,0 +1,221 @@
+<!DOCTYPE html >
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$cateItem.name}</title>
+<include file="public@head"/>
+<link href="__TMPL__/public/assets/css/list.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="__TMPL__/public/assets/css/article.css">
+</head>
+<body >
+    <div class="main" >
+    
+    <include file="public@nav"/>
+    <div class="container container_col">
+      <div class="list-warpper">
+        <div class="list-left">
+          <div class="news-title news-left">
+            <div class="news-name tab-nav">
+              <div  class="current" >{$cateItem.name}</div>
+            </div>
+        </div>
+        <div style="height: 48px;"></div>
+        <ul class="cate-list">
+          <foreach name='categorylist' item='vo'>
+            <if condition="$vo.id===$activecate.id">
+             <li class="cate-item active" ><a href="{:url('portal/List/index',array('cid'=>$categoryId,'sid'=>$vo.id))}?page=1">{$vo.name}</a></li>
+              <else>
+             <li class="cate-item" ><a href="{:url('portal/List/index',array('cid'=>$categoryId,'sid'=>$vo.id))}?page=1">{$vo.name}</a></li>
+              </else>
+            </if>
+          </foreach>
+        </ul>
+
+        </div>
+        <div class="list-right">
+          <div class="news-title news-left">
+            <div class="news-name tab-nav">
+              <div  class="current" >当前位置 > 
+                <a href="/">首页</a> > 
+                <a href="{:url('portal/Category/index',array('cid'=>$categoryId))}">{$cateItem.name}</a> >
+                <a class="active" href="{:url('portal/List/index?',array('cid'=>$categoryId,'sid'=>$activecate.id))}?page=1">{$activecate.name}</a>
+              </div>
+            </div>
+        </div>
+        <div style="height: 48px;"></div>
+            <section class="article-warpper">
+                <div class="title">
+                  <div>{$article.post_title}</div>
+                </div>
+                    <p class="ax_default article-time">发布时间:<?php  echo date('Y-m-d',$article['published_time']); ?></p>
+                <div class="article-content">
+                  {$article.post_content}
+                </div>
+
+               <if condition="$flag">
+                <?php 
+                $dotlist = [] ;
+                try{
+                  if($_COOKIE['dotlist']){
+                  $dotlist = json_decode($_COOKIE['dotlist'],true);
+                  }
+                }catch(\Exception $e){
+    
+                }
+            
+               ?>
+                <div class="article-dot">
+                  <if condition="in_array($article['id'],$dotlist)">
+                    <div class="dot-custom dot-img2">
+                      <input type="hidden" value={$article.id} class="post">
+                      </div>
+                    <else>
+                      <div class="dot-custom dot-img">
+                        <input type="hidden" value={$article.id} class="post">
+                        </div>
+                    </else>
+                  </if>
+                  <div class="line-title">点赞</div><div class="like">{$article.post_like}</div>
+               </div>
+               </if>
+                <div class="article-nav ax_default">
+                 <div class="nav-list">
+                  <if condition="!empty($prev_article)">
+                    <a class="left" href="{:url('portal/Article/index?',array('sid'=>$activecate.id,'id'=>$prev_article.id))}">
+                      上一条:
+                      <?php  
+                      $temp;
+                      if(mb_strlen($prev_article['post_title'])>16){
+                        $temp=mb_substr($prev_article['post_title'],0,16);
+                        $temp.='...'; 
+                      }else{
+                       $temp=$prev_article['post_title'];
+                      }
+                      echo $temp;
+                      ?>
+                    </a>
+                  </if>
+                  <if condition="!empty($next_article)">
+                   <a class="right" href="{:url('portal/Article/index?',array('sid'=>$activecate.id,'id'=>$next_article.id))}">
+                    下一条:
+                    <?php  
+                    $temp;
+                    if(mb_strlen($next_article['post_title'])>16){
+                      $temp=mb_substr($next_article['post_title'],0,16);
+                      $temp.='...'; 
+                    }else{
+                     $temp=$next_article["post_title"];
+                    }
+                    echo $temp;
+                    ?>
+                  </a>
+                  </if>
+                 </div>
+                </div>
+            </section>
+        </div>
+
+       
+      </div>
+    </div>
+    <div class="clearfix"></div>
+<include file="public@footer"/>
+
+<script>
+   function  setCookie(name,val,iDay){
+            var oDate = new Date()
+
+            oDate.setDate(oDate.getDate()+iDay)
+            
+            document.cookie = name+'='+val+';expires='+oDate+';path=/ '
+        }
+
+
+        function getCookie(name){
+
+        var arr = document.cookie.split('; ')
+
+        for(var i = 0;i< arr.length;i++){
+            var temp = arr[i].split('=')
+            
+        //  console.log(temp)
+          
+          if(temp[0] == name){
+                return temp[1]
+          }
+
+        }
+
+
+        }
+  $(function(){
+    $('.dot-custom').on('click',function(){
+       var id = $(this).children('.post').val() 
+       if($(this).hasClass('dot-img2')){
+          return;
+       }
+       var oTemp = $(this);
+    
+       $.ajax({
+          type : "get",//请求方式,post请求 ,可以改成get请求
+
+          url : '/portal/article/newdoLike/id/'+id,//后台请求地址
+
+          dataType : "json",//后台返回值类型
+
+          async : false,//异步请求
+         
+          traditional : true,//传统序列化
+
+          success : function(data){
+          //data 请求后台返回的数据
+            var initlist = getCookie('dotlist')
+            let val = []
+            if(initlist){
+              let temp = JSON.parse(initlist)
+              temp.push(id)
+              val = temp 
+            }else{
+              val.push(id)
+            }
+          
+            setCookie('dotlist',JSON.stringify(val),1)
+            var obj =  $(".dot-custom >input[value="+id+"]").parent()
+            obj.addClass('dot-img2').removeClass('dot-img')
+          
+
+            var newVal = obj.parent().children('.like').html()*1+1
+            obj.parent().children('.like').html(newVal)
+          },
+
+          error :function(){
+          }
+
+          });
+    })
+    
+   try {
+    var video = $(".edui-upload-video");
+      video[0].autoplay = true;
+      video[0].muted  = true;
+      video[0].load();
+   } catch (error) {
+     
+   }
+
+  //  try {
+    
+  //   $('p img').each(function(index,item){
+  //     if($(item).width() > $(item).parent().width()){
+  //       $(item).css('width','100%')
+  //    }
+  //   })
+  //  } catch (error) {
+     
+  //  }
+
+   
+  })
+
+</script>
+</body>
+</html>

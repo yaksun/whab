@@ -1,0 +1,201 @@
+.member-content{
+    background-color: #fff;
+    margin: 10px 0;
+    min-height: 400px;
+    box-sizing: border-box;
+}
+.member-content  .member-item{
+    display: flex;
+    align-items: center;
+    padding: 20px 30px;
+    transition: 0.3s linear;
+}
+
+.member-content  .member-item:hover{
+    background-color: #E6EFFF;
+}
+.member-content  .member-item .new-class .new-link>a{
+    transition: 0.3s linear;
+}
+.member-content  .member-item:hover .new-class .new-link>a{
+    color: #185ACA;
+    margin-left: 10px;
+}
+
+.member-content  .member-item .left-content{
+    width: 220px;
+    height: 120px;
+    margin-right: 10px ;
+}
+
+.member-content  .member-item .left-content img{
+    width: 100%;
+    height: 100%;
+}
+
+.member-content  .member-item .right-content{
+    flex:1;
+    height: 120px;
+}
+.member-content .member-item .right-content .dot{
+    float: right;
+    display: inline-flex;
+    height: 20px;
+    align-items: center;
+}
+.member-content .member-item .right-content span{
+    height: 20px;
+}
+
+.member-content .member-item .right-content .dot .dot-img{
+    background-image: url(../images/new/u1366.svg);
+}
+
+.member-content .member-item .right-content .dot .dot-img2{
+    background-image: url(../images/new/u1368.svg);
+}
+
+.member-content .member-item .right-content .dot .dot-custom{
+    cursor: pointer;
+    width: 16px;
+    height: 15px;
+}
+.dot .line-title{
+    margin: 0 5px ;
+}
+.member-content  .member-item .right-content>a{
+    margin-bottom: 15px;
+    display: block;
+}
+.member-content  .member-item .right-content>a span{
+    font-family: 'Arial Black', 'Arial Normal', 'Arial';
+    font-weight: 900;
+    color: #185ACA;
+    font-size: 16px;
+}
+.member-content  .member-item .right-content >div{
+    font-family:'Arial Normal', 'Arial';
+    font-weight:400;
+    font-size: 14px;
+    height: calc( 100% - 42px );
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+
+.member-item .right-content .title{
+    font-family: 'Arial Black', 'Arial Normal', 'Arial';
+    font-weight: 900;
+    font-size: 18px;
+    color: #666;
+}
+.member-item .right-content .time{
+    font-family: 'Arial Normal', 'Arial';
+    font-weight: 400;
+    font-size: 14px;
+    float: right;
+}
+
+.member-item .right-content .new-class>a{
+    font-family: 'Arial Normal', 'Arial';
+    font-weight: 400;
+    text-decoration: underline;
+    color: #2F6FD5;
+    font-size: 14px;
+    text-decoration: none;
+    cursor: pointer;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.member-warpper{
+    display: flex;
+    flex-wrap: wrap;
+    min-height: 400px;
+    margin: 10px 0;
+    background-color: #fff;
+    width: 100%;
+
+}
+
+.member{
+    background-color: transparent;
+}
+
+.member-warpper .cate-item{
+    padding: 10px;
+    box-sizing: border-box;
+   
+}
+.member-warpper .cate-item .item-warpper{
+    height: 380px;
+    margin: auto;
+    background: #fff;
+    border-radius: 10px;
+    padding:50px 15px 20px 15px;
+    box-sizing: border-box;
+    transition: all .5s linear;
+}
+.member-warpper .cate-item .cate-img{
+   width: 140px;
+   height: 140px;
+   margin: 0 auto;
+    box-sizing: border-box;
+}
+
+.member-warpper .cate-item .cate-img>img{
+    width: 100%;
+    height: 100%;
+} 
+
+.member-warpper .cate-item  .cate-title{
+    margin-top: 40px;
+}   
+
+.member-warpper .cate-item  .cate-title .title{
+    height: 34px;
+    font-size: 16px;
+    font-family: Microsoft YaHei;
+    font-weight: bold;
+    color: #666666;
+    line-height: 17px;
+}
+
+.member-warpper .cate-item  .cate-title .detail{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    font-size: 12px;
+    font-family: Microsoft YaHei;
+    font-weight: 300;
+    color: #999999;
+    line-height: 20px;
+    margin: 5px 0;
+    height: 40px;
+}
+
+.member-warpper .cate-item  .goDetail{
+    margin-top: 22px;
+    width: 60px;
+    height: 36px;
+    border: 1px solid #377BFE;
+    border-radius: 18px;
+    line-height: 36px;
+    text-align: center;
+    color:#377BFE;
+    transition: all .5s linear;
+}
+
+.member-warpper .cate-item:hover .item-warpper{
+   box-shadow: 0px 0px 10px 0px rgba(47, 111, 213, 0.2);
+}
+
+.member-warpper .cate-item .goDetail:hover{
+    background-color: #377BFE;
+    color: #fff;
+}
+

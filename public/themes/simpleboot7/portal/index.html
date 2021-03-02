@@ -1,0 +1,358 @@
+<!DOCTYPE html >
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>首页 {$site_info.site_name|default=''}</title>
+<include file="public@head"/>
+ <link href="__TMPL__/public/assets/css/slippry/slippry.css" rel="stylesheet">
+<link rel="stylesheet" href="__TMPL__/public/assets/css/banner.css">
+<script src="__TMPL__/public/assets/js/banner.js"></script>
+</head>
+<body>
+<include file="public@nav"/>
+
+<div class="banner-warpper">
+	<div class="banner">
+		<div class="b-img">
+			<foreach name="slides" item="vo">
+				<a href="<?php echo $vo['url'];?>" title="<?php echo $vo['title'];?>" target="<?php echo $vo['target'];?>">
+						<img src="{:cmf_get_image_url($vo.image)}"  style="width: 100%;">
+				</a>
+			  </foreach>
+		</div>
+		<!-- <a class="bar-left" ><em></em></a><a class="bar-right" ><em></em></a>  -->
+	</div>
+</div>
+
+<!--搜索-天气-限行-App二维码结束-->
+
+<!--第一部分图片新闻开始-->
+  <div class="news-notice w-1400">
+	<div class="indexTitle animate" data-animate="fadeInUp" data-duration="1.0s" data-delay="0.1s">
+		<div class="en">NEWS</div>
+		<div class="cn">
+			<span class="item on">协会要闻</span>
+			<span class="item">通知公告</span>
+		</div>
+		<div class="indexMore">
+			<a class="on" href="{:url('portal/Category/index',array('cid'=>$associationNews[0]['parent_id']))}?page=1">查看更多 +</a>
+			<a href="{:url('portal/Category/index',array('cid'=>$announcementsList[0]['parent_id']))}?page=1">查看更多 +</a>
+		</div>
+	</div>
+	<div class="detail">
+		<div class="item on" style="overflow: hidden;" >
+			<!-- 协会要闻 -->
+			  <ul class="marquee-warpper" id="marquee9">
+				  <foreach name="associationNews" item="vo">
+					<li>
+						<a  href="{:url('portal/Article/index?',array('sid'=>$vo.id,'id'=>$vo.post_id))}">
+						  <div class="detail-top">
+						  <img class="img" src="{:cmf_get_image_url($vo['thumbnail'])}" >
+						  </div>
+						  <div class="text">
+							  <div class="tit">
+								  <div class="time">
+									  <span><?php  echo date('m/d',$vo['published_time']); ?></span>
+									  <span><?php  echo date('Y',$vo['published_time']); ?></span>
+								  </div> 
+								  <div class="textWrap-one">
+									  {$vo['post_title']}
+								  </div>
+							  </div>
+							  <p class="textWrap-two">{$vo['post_excerpt']}</p>
+							  <i class="tran400"></i>
+						  </div>
+					  </a>
+					</li>
+				  </foreach>
+			  </ul>
+			</div>
+		  <div class="tNew item">
+			  <ul class="common-item left">
+				  <foreach name="announcementsList" item="vo" key="index">
+					 
+						<li><a href="{:url('portal/Article/index?',array('sid'=>$vo.id,'id'=>$vo.post_id))}">
+							<div class="time">
+								<b><?php  echo date('d',$vo['published_time']); ?></b><span><?php  echo date('Y-m',$vo['published_time']); ?></span>
+							  </div><p class="textWrap-two">  {$vo['post_title']}</p></a></li>
+				</foreach>
+			  </ul>
+			  <ul class="right common-item">
+				<foreach name="rightAnnouncementsList" item="vo" key="index">
+						<li><a href="{:url('portal/Article/index?',array('sid'=>$vo.id,'id'=>$vo.post_id))}">
+							<div class="time">
+								<b><?php  echo date('d',$vo['published_time']); ?></b><span><?php  echo date('Y-m',$vo['published_time']); ?></span>
+							  </div><p class="textWrap-two">  {$vo['post_title']}</p></a></li>
+					</foreach>
+			  </ul>
+		  </div>
+	</div>
+  </div>
+  <!--第一部分图片新闻结束-->
+<script>
+	$('.indexTitle >.cn> span').click(function(){
+		$(this).addClass('on')
+		$(this).siblings().removeClass('on')
+
+		var index = $(this).index() 
+		var dom = $('.detail>.item').eq(index)
+
+		$(dom).addClass('on')
+		$(dom).siblings().removeClass('on')
+
+		var link = $('.indexMore> a').eq(index)
+		$(link).addClass('on')
+		$(link).siblings().removeClass('on')
+
+	})
+
+	
+</script>
+<div class="w-1400 newBottom">
+<div class="item animate" data-animate="fadeInLeft" data-duration="1.0s" data-delay="0.1s" >
+	<div class="tit">
+		<img src="__TMPL__/public/assets/images/new/hy.png">
+		<span>行业新闻</span>
+		<a class="more" href="{:url('portal/List/index',array('cid'=>$industryNews[0]['parent_id'],'sid'=>$industryNews[0]['id']))}?page=1">查看更多</a>
+	</div>
+	<ul>
+		<foreach name="industryNews" item="vo">
+		   <li><a href="{:url('portal/Article/index?',array('sid'=>$vo.id,'id'=>$vo.post_id))}">{$vo['post_title']}</a><i><?php  echo date('Y-m-d',$vo['published_time']); ?></i></li>
+		</foreach>
+	</ul>
+</div>
+<div class="item animate" data-animate="fadeInRight" data-duration="1.0s" data-delay="0.1s">
+	<div class="tit">
+		<img src="__TMPL__/public/assets/images/new/huiyuang.png">
+		<span>会员新闻</span>
+		<a class="more" href="{:url('portal/List/index',array('cid'=>$memberNews[0]['parent_id'],'sid'=>$memberNews[0]['id']))}?page=1">查看更多</a>
+	</div>
+	<ul>
+		<foreach name="memberNews" item="vo">
+			<li><a href="{:url('portal/Article/index?',array('sid'=>$vo.id,'id'=>$vo.post_id))}">{$vo['post_title']}</a><i><?php  echo date('Y-m-d',$vo['published_time']); ?></i></li>
+		 </foreach>
+	</ul>
+</div>
+</div>
+
+<!--无限滚动图片开始-->
+<div class="w-1400 scroll-warpper" >
+	<div class="news-title">
+		<div class="news-name tab-nav">
+			<div  class="current">会员名录</div>
+		</div>
+		<a href="{:url('portal/Category/index',array('cid'=>$memberParent['id']))}?page=1" class="more">查看更多+ </a>
+	  </div>
+	  <div style="height: 48px;"></div>
+    <div class="marquee-container">
+				<div id="indemo9">
+							<foreach name='MemberStyle' item='vo'>
+								<a class="nav-marquee" title="<?php echo $vo['name'] ;?>"  href="{:url('portal/Article/index?',array('sid'=>$vo.parent_id,'id'=>$vo.id))}">
+									<div class="img-warpper">
+										<img src="{:cmf_get_image_url($vo['thumbnail'])}" border="0" />
+									</div>
+									<div class="text-warpper">
+									<?php  
+									$temp;
+									if(mb_strlen($vo['name'])>25){
+									$temp=mb_substr($vo['name'],0,25);
+									$temp.='...'; 
+									}else{
+									$temp=$vo['name'];
+									}
+									echo $temp;
+								?>
+								</div>
+								</a> 
+							</foreach>
+				</div> 
+	</div>
+</div>
+
+
+
+ <!--无限滚动图片结束-->
+
+<!-- 手风琴效果开始 -->
+<div class="menu-container">
+	<div class="w-1400 menu-warpper">
+
+		<div class="item act">
+			<div class="tit">
+				<div class="tit-x">
+					<img src="__TMPL__/public/assets/images/new/djzc.png" alt="">
+					<span>党建之窗</span>
+				</div>
+				<img class="img" src="__TMPL__/public/assets/images/new/menuimg1.png" alt="">
+			</div>
+			<ul class="menuList">
+				<foreach name="partyBuilding" item="vo">
+				<li><a href="{:url('portal/Article/index?',array('sid'=>$vo.id,'id'=>$vo.post_id))}"><span>{$vo['post_title']}</span><i><?php  echo date('Y-m-d',$vo['published_time']); ?></i></a></li>
+				</foreach>
+				<if condition="$associationServicesStatus">
+				<li class="link"><a href="{:url('portal/Category/index',array('cid'=>$partyBuilding[0]['parent_id']))}?page=1">查看更多</a></li>
+				</if>
+			</ul>
+		</div>
+		<div class="item">
+			<div class="tit">
+				<div class="tit-x">
+					<img src="__TMPL__/public/assets/images/new/xhfw.png" alt="">
+					<span>协会服务</span>
+				</div>
+				<img class="img" src="__TMPL__/public/assets/images/new/menuimg1.png" alt="">
+			</div>
+			<ul class="menuList">
+				<foreach name="associationServices" item="vo">
+					<li><a href="{:url('portal/Article/index?',array('sid'=>$vo.id,'id'=>$vo.post_id))}"><span>{$vo['post_title']}</span><i><?php  echo date('Y-m-d',$vo['published_time']); ?></i></a></li>
+				</foreach>
+				<if condition="$associationServicesStatus">
+					<li class="link"><a href="{:url('portal/Category/index',array('cid'=>$associationServices[0]['parent_id']))}?page=1">查看更多</a></li>
+				   </if>
+			</ul>
+		</div>
+		<div class="item">
+			<div class="tit">
+				<div class="tit-x">
+					<img src="__TMPL__/public/assets/images/new/jypx.png" alt="">
+					<span>教育培训</span>
+				</div>
+				<img class="img" src="__TMPL__/public/assets/images/new/menuimg1.png" alt="">
+			</div>
+			<ul class="menuList">
+				<foreach name="educationTraining" item="vo">
+					<li><a href="{:url('portal/Article/index?',array('sid'=>$vo.id,'id'=>$vo.post_id))}"><span>{$vo['post_title']}</span><i><?php  echo date('Y-m-d',$vo['published_time']); ?></i></a></li>
+				</foreach>
+				<if condition="$educationTrainingStatus">
+					<li class="link"><a href="{:url('portal/Category/index',array('cid'=>$educationTraining[0]['parent_id']))}?page=1">查看更多</a></li>
+				   </if>
+			</ul>
+		</div>
+		<div class="item">
+			<div class="tit">
+				<div class="tit-x">
+					<img src="__TMPL__/public/assets/images/new/nlpj.png" alt="">
+					<span>能力评价</span>
+				</div>
+				<img class="img" src="__TMPL__/public/assets/images/new/menuimg1.png" alt="">
+			</div>
+			<ul class="menuList">
+				<foreach name="abilityEvaluation" item="vo">
+					<li><a href="{:url('portal/Article/index?',array('sid'=>$vo.id,'id'=>$vo.post_id))}"><span>{$vo['post_title']}</span><i><?php  echo date('Y-m-d',$vo['published_time']); ?></i></a></li>
+				</foreach>
+				<if condition="$abilityEvaluationStatus">
+					<li class="link"><a href="{:url('portal/Category/index',array('cid'=>$abilityEvaluation[0]['parent_id']))}?page=1">查看更多</a></li>
+				   </if>
+			</ul>
+		</div>
+		
+		
+		</div>
+		<script>
+			$('.menu-warpper .item').click(function () {
+				$(this).addClass('act').siblings('.item').removeClass('act')
+			})
+		</script>
+</div>
+<!-- 手风琴结束 -->
+
+<!-- 协会简介开始 -->
+<div class="partThree">
+	<div class="w-1400 box">
+        <div class="indexTitle animate" data-animate="bounceIn" data-duration="1.0s" data-delay="0.1s">
+            <div class="en">ABOUT US</div>
+            <div class="cn">
+                <span class="item on">协会简介</span>
+            </div>
+        </div>
+        <div class="indexWord">
+			<?php echo htmlspecialchars_decode($profileFirst['post_content']); ?>
+		</div>
+        <ul class="list">
+            <li>
+                <a href="portal/list/index/cid/11/sid/110.html?page=1"><img src="__TMPL__/public/assets/images/new/rhsq.png">入会申请</a>
+			</li>
+			<li>
+                <a href="portal/list/index/cid/19/sid/105.html?page=1"><img src="__TMPL__/public/assets/images/new/xhzc.png">协会章程</a>
+			</li>
+			<li>
+                <a href="portal/list/index/cid/19/sid/106.html?page=1"><img src="__TMPL__/public/assets/images/new/zzjg.png">组织结构</a>
+			</li>
+			<li>
+                <a href="portal/list/index/cid/19/sid/187.html?page=1"><img src="__TMPL__/public/assets/images/new/rhlc.png">入会流程</a>
+			</li>
+		
+        </ul>
+        <a class="more" href="{:url('portal/Category/index',array('cid'=>$profileFirst['parent_id']))}">查看更多</a>
+    </div>
+</div>
+<!-- 协会简介结束 -->
+
+<include file="public@footer"/>	
+
+<script src="__TMPL__/public/assets/js/slippry.min.js"></script>
+<script src="__TMPL__/public/assets/js/jquery.bxslider.js"></script>
+<script src="__TMPL__/public/assets/js/scrolla.jquery.min.js"></script>
+
+<script>
+	function slide(){
+		var width = $('.detail').width()
+		var n=3
+
+		if(width<1000){
+			n = 2
+		}else if(width<500){
+			n=1
+		}
+		
+		$('#marquee9').bxSlider({
+			auto: true,
+			pause: 2000, // 间隔时间
+			slideWidth: (width-(n-1)*29)/n,
+			minSlides: 1,
+			maxSlides: n,
+			moveSlides: 1,
+			slideMargin: 29,
+			controls: false,//隐藏左右按钮
+			pager:false,
+			autoHover: true 
+			});
+
+
+			$('#indemo9').bxSlider({
+
+			slideWidth: 180,
+
+			minSlides: 4,
+
+			maxSlides: 8,
+
+			slideMargin: 30,
+			
+			ticker: true,
+
+			speed: 80000,
+
+			startSlides: 0,
+			tickerHover:true ,
+			pager:false,
+			useCSS:false
+
+			});
+
+	}
+	$(function(){
+		slide()
+
+	})
+
+	$('.animate').scrolla({
+      mobile: false, // disable animation on mobiles 
+      once: false // only once animation play on scroll
+  });
+
+	// $(window).resize(function(){
+	// 	slide()
+	// })
+</script>
+</body>
+</html>

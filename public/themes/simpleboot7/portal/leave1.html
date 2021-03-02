@@ -1,0 +1,230 @@
+<!DOCTYPE html >
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$cateItem.name}</title>
+<include file="public@head"/>
+<link rel="stylesheet" href="__TMPL__/public/assets/css/leave1.css">
+
+
+</head>
+<body>
+  <div class="leave-warpper" >
+    <include file="public@nav"/>
+      <div class="leave-nav">
+        <div class="news-title">
+          <div class="news-name tab-nav">
+            <div  class="current" >当前位置 > 
+              <a href="/">首页</a> > 
+              <a  href="{:url('portal/Category/index',array('cid'=>$father.id))}?page=1">会员风貌</a> >
+              <a  href="{:url('portal/List/index?',array('cid'=>$father.id,'sid'=>$parentItem.id))}?page=1">{$parentItem.name}</a> > 
+              <a href="{:url('portal/article/index',array('sid'=>$parentItem.id,'id'=>$articleId))}" class="active">{$cateItem.name}</a>
+              </div>
+          </div>
+      </div>
+      <div style="height: 48px;" class="fixed-class"></div>
+      </div>
+      <div class="leave-title animate"  data-animate="rubberBand" data-duration="1.0s" data-delay="0.1s" >{$cateItem.name}</div>
+      <foreach name="catelist" item="vo">
+        <if condition="$vo['name']==='企业文化'">
+          <div class="qywh"  id="qywh">
+             <div class="qywh-left">
+               <div class="qywh-top">
+                 <div class="common-number">
+                   01
+                 </div>
+                 <div class="common-title">
+                   <p>企业文化</p>
+                   <p>CORPORATE CULTURE</p>
+                 </div>
+               </div>
+               <if condition="count($vo['list'])">
+                <div class="qywh-detail animate" data-animate="fadeInLeft" data-duration="1.0s" data-delay="0.1s" >
+                  <span style=" font-family: times new roman;">&nbsp; &nbsp; &nbsp; &nbsp; </span>
+                  {$vo['list'][0]['description']}
+                 </div>
+               </if>
+             </div>
+             <div class="qywh-right animate" data-animate="fadeInRight" data-duration="1.0s" data-delay="0.1s">
+              <if condition="count($vo['list'])">
+               <img src="{:cmf_get_image_url($vo['list'][0]['more']['thumbnail'])}" >
+               </if>
+             </div>
+           </div>
+        </if>
+        <if condition="$vo['name']==='服务项目'" >
+          <div class="wfxm" id="wfxm">
+            <div class="wfxm-top animate" data-animate="fadeInRight" data-duration="1.0s" data-delay="0.1s">
+              <div class="common-title">
+                <p>服务项目</p>
+                <p>SERVICE ITEMS</p>
+              </div>
+              <div class="common-number">
+                02
+              </div>
+            </div>
+            <div class="wfxm-bottom">
+            
+                <ul id="marquee">
+                  <foreach name="$vo['list']" item="mini">
+                    <li>
+                      <img src="{:cmf_get_image_url($mini['more']['thumbnail'])}" alt="banner_1" >
+                      <p>{$mini['name']}</p>
+                    </li>
+                  </foreach>
+                  </ul>
+            </div>
+          </div>
+        </if>
+        <if condition="$vo['name']==='荣誉资质'" >
+          <div class="ryzz" id="ryzz">
+           <div class="ryzz-warpper">
+            <div class="ryzz-top animate" data-animate="fadeInLeft" data-duration="1.0s" data-delay="0.1s">
+              <div class="common-number">
+                03
+              </div>
+              <div class="common-title">
+                <p>荣誉资质</p>
+                <p>HONOR AND QUALIFICATION</p>
+              </div>
+             </div>
+             <div class="ryzz-bottom">
+              <ul id="marquee2">
+                <foreach name="$vo['list']" item="mini">
+                  <li>
+                    <img src="{:cmf_get_image_url($mini['more']['thumbnail'])}" alt="banner_1" >
+                    <p>{$mini['name']}</p>
+                  </li>
+                </foreach>
+                </ul>
+             </div>
+           </div>
+          </div>
+        </if>
+        <if condition="$vo['name']==='服务案例'" >
+          <div class="khal" id="khal">
+              <div class="khal-top animate" data-animate="fadeInUp" data-duration="1.0s" data-delay="0.1s">
+                <div class="common-title">
+                  <p>服务案例</p>
+                  <p>SERVICE ITEMS</p>
+                </div>
+                <div class="common-number">
+                  04
+                </div>
+              </div>
+              <div class="khal-bottom">
+                <ul id="marquee3">
+                  <foreach name="$vo['list']" item="mini">
+                    <li>
+                      <img src="{:cmf_get_image_url($mini['more']['thumbnail'])}" alt="banner_1" >
+                      <p>{$mini['name']}</p>
+                    </li>
+                  </foreach>
+                  </ul>
+              </div>
+          </div>
+        </if>
+        <if condition="$vo['name']==='联系我们'">
+          <div class="lxwm"  id="lxwm">
+            <div class="lxwm-top">
+              <div class="common-number">
+                05
+              </div>
+              <div class="common-title">
+                <p>联系我们</p>
+                <p>CONTACT US</p>
+              </div>
+            </div>
+            <div class="lxwm-bottom animate" data-animate="bounceIn" data-duration="1.0s" data-delay="0.1s">
+              <foreach name="$vo['list']" item="contact">
+               <if condition="$contact['name']==='电话号码'">
+                <p><i class="iconfont icon-dianhuazuoji"></i> 电话号码:{$contact['description']}</p>
+               </if>
+               <if condition="$contact['name']==='传真号码'">
+                <p><i class="iconfont icon-chuanzhen1"></i> 传真号码:{$contact['description']}</p>
+               </if>
+               <if condition="$contact['name']==='联系人'">
+                <p><i class="iconfont icon-geren"></i> 联系人:{$contact['description']}</p>
+               </if>
+               <if condition="$contact['name']==='邮箱'">
+                <p><i class="iconfont icon-youxiang"></i> 邮箱:{$contact['description']}</p>
+               </if>
+               <if condition="$contact['name']==='公司地址'">
+                <p><i class="iconfont icon-dizhi1"></i> 公司地址:{$contact['description']}</p>
+               </if>
+              </foreach>
+            </div>
+          </div>
+        </if>
+      </foreach>
+    </div>
+
+<script src="__TMPL__/public/assets/js/scrolla.jquery.min.js"></script>
+<script src="__TMPL__/public/assets/js/jquery.bxslider.js"></script>
+
+<script>
+  $('.animate').scrolla({
+      mobile: false, // disable animation on mobiles 
+      once: false // only once animation play on scroll
+  });
+
+  $(function(){
+        $('#marquee').bxSlider({
+
+            auto: true,
+            pause: 2000, // 间隔时间
+            slideWidth: 320,
+
+            minSlides: 2,
+
+            maxSlides: 4,
+
+            moveSlides: 1,
+
+            slideMargin: 30,
+            controls: false,//隐藏左右按钮
+            pager:false,
+            autoHover: true 
+        });
+
+        $('#marquee2').bxSlider({
+
+            auto: true,
+            pause: 2000, // 间隔时间
+            slideWidth: 280,
+
+            minSlides: 2,
+
+            maxSlides: 4,
+
+            moveSlides: 1,
+
+            slideMargin: 70,
+            controls: false,//隐藏左右按钮
+            pager:false,
+            autoHover: true 
+            });
+
+            $('#marquee3').bxSlider({
+
+            auto: true,
+            pause: 2000, // 间隔时间
+            slideWidth: 320,
+
+            minSlides: 2,
+
+            maxSlides: 4,
+
+            moveSlides: 1,
+
+            slideMargin: 30,
+            controls: false,//隐藏左右按钮
+            pager:false,
+            autoHover: true 
+            });
+
+      })
+
+</script>
+<include file="public@footer"/>
+</body>
+</html>

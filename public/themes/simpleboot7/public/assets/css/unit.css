@@ -1,0 +1,42 @@
+.advance-bottom .fieldset-container {
+  border: 1px solid rgba(47, 111, 213, 0.7);
+  position: relative;
+  padding: 40px 20px;
+  margin-bottom: 40px;
+}
+.advance-bottom .fieldset-container .title-warpper {
+  height: 36px;
+  position: absolute;
+  display: inline-block;
+  padding: 0 15px;
+  left: 5%;
+  top: -18px;
+  line-height: 36px;
+  background-color: #fff;
+  z-index: 999;
+  font-size: 28px;
+}
+.advance-bottom .fieldset-container .title-warpper .title {
+  color: #2F6FD5;
+  font-weight: bold;
+}
+.advance-bottom .fieldset-container .advance-content {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: 200px;
+  flex-shrink: 1;
+}
+.advance-bottom .fieldset-container .advance-content .col-md-4 {
+  font-size: 18px;
+  margin: 10px 0;
+  color: #666;
+}
+.advance-bottom .fieldset-container .advance-content .col-md-4 .title-desc2 {
+  font-size: 14px;
+}
+.advance-bottom .fieldset-container img {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+}

@@ -1,0 +1,85 @@
+#browser-modal{
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    text-align: center;
+    color: #303233;
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    .browser-modal-cover{
+        position: fixed;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        background-color: #111;
+        opacity: .5;
+        z-index: -1;
+    }
+    .browser-content {
+        width: 700px;
+        margin-top: 120px;
+        margin-left: auto;
+        margin-right: auto;
+        padding-bottom: 80px;
+        padding-top: 30px;
+        background-color: #fff;
+        .browser-text{
+            .browser-text-title{
+                text-transform: uppercase;
+                font-size: 24px;
+                text-align: center;
+            }
+            .browser-text-desc{
+                margin-top: 30px;
+                margin-bottom: 50px;
+                font-size: 14px;
+                text-align: center;
+            }
+        }
+        .browser-list{
+            width: 600px;
+            margin: 40px auto;
+            height: 130px;
+            .browser-item{
+                float: left;
+                width: 150px;
+                padding-top: 20px;
+                padding-bottom: 20px;
+                margin-left: auto;
+                margin-right: auto;
+                a{
+                    color: #1897f2;
+                    cursor: pointer;
+                    display: block;
+                    .browser-i-c{
+                        background-image: url(../images/new/chrome.jpg);
+                    }
+                    .browser-i-f{
+                        background-image: url(../images/new/firefox.jpg);
+                    }
+                    .browser-i-s{
+                        background-image: url(../images/new/safari.jpg);
+                    }
+                    .browser-i-e{
+                        background-image: url(../images/new/edge.jpg);
+                    }
+                    .browser-pic{
+                        width: 100px;
+                        height: 100px;
+                        margin: 0 auto;
+                        background-repeat: no-repeat;
+                    }
+                    h4{
+                        text-align: center;
+                        margin-top: 20px;
+                        font-size: 18px;
+                        font-weight: 700;
+                    }
+                }
+            }
+        }
+    }
+}

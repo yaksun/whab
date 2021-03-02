@@ -1,0 +1,81 @@
+<div class="pagenation">
+    <a class="page-item home">首页</a>
+    <a class="page-item up">上一页</a> 
+    <a class="page-item down">下一页</a> 
+    <a class="page-item end">尾页</a>
+    <span class="page-item">共{$count}条记录</span>
+    <span class="page-item">当前第<?php echo $page; ?>/<?php echo ceil($count/$pageSize) ;?>页</span>
+    <span class="page-item">{$pageSize}条/页</span>
+    <input type="text" class="page-item page-val" />
+    <a class="page-item redirect">跳转</a>
+    <input class="count" type="hidden" value="<?php echo ceil($count/$pageSize) ;?>">
+  </div>
+  <script>
+    function getQueryVariable(variable)
+    {
+          var query = window.location.search.substring(1);
+          var vars = query.split("&");
+          for (var i=0;i<vars.length;i++) {
+                  var pair = vars[i].split("=");
+                  if(pair[0] == variable){return pair[1];}
+          }
+          return(false);
+    }
+      $(function(){
+        $('.redirect').click(function(){
+            var val = $('.page-val').val() 
+            if(!val.trim() || val*1<1){
+              $('.page-val').val('')
+              return 
+            }
+
+            if(val*1>($('.count').val()*1)){
+              $('.page-val').val('')
+              return 
+            }
+            window.location.href=window.location.origin+window.location.pathname+'?page='+val
+           
+        })
+
+        $('.home').click(function(){
+          if(window.location.search && getQueryVariable('page')){
+            let page=getQueryVariable('page')*1;
+            if(page===1){
+              return 
+            }
+            window.location.href=window.location.origin+window.location.pathname+'?page=1'
+          }
+        })
+
+        $('.end').click(function(){
+         
+          if(window.location.search && getQueryVariable('page')){
+            if((getQueryVariable('page')*1)===($('.count').val()*1)){
+              return 
+            }
+            window.location.href=window.location.origin+window.location.pathname+'?page=<?php echo ceil($count/$pageSize) ;?>'
+          }
+        })
+
+        $('.up').click(function(){
+          if(window.location.search && getQueryVariable('page')){
+            let page=getQueryVariable('page')*1-1;
+            if(page<1){
+              return 
+            }
+            window.location.href=window.location.origin+window.location.pathname+'?page='+page 
+          }
+        })
+
+        $('.down').click(function(){
+      
+          if(window.location.search && getQueryVariable('page')){
+            if((getQueryVariable('page')*1)>=($('.count').val()*1)){
+              return 
+            }
+            let page=getQueryVariable('page')*1+1;
+            window.location.href=window.location.origin+window.location.pathname+'?page='+page 
+          }
+        })
+      })
+  </script>

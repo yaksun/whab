@@ -1,0 +1,32 @@
+.list-right .cate-content .content-item2 span{
+    font-size: 14px;
+}
+.list-right .cate-content  .content-item2{    
+    font-family: 'Arial Normal', 'Arial';
+    font-weight: 400;
+    font-style: normal;
+    font-size: 13px;
+    letter-spacing: normal;
+    font-size: 14px;
+    text-align: left;
+    height: 40px;
+    line-height: 40px;
+    border-bottom: 1px solid rgba(230, 239, 255, 1);
+}
+.list-right .cate-content  .content-item2{
+    font-family: 'Arial Normal', 'Arial';
+    font-weight: 400;
+    font-style: normal;
+    font-size: 13px;
+    letter-spacing: normal;
+    color: #333333;
+    font-size: 14px;
+    text-align: left;
+    height: 40px;
+    line-height: 40px;
+}
+
+.list-right .cate-content  .content-item2>a:hover {
+    font-weight: bold;
+    color: rgb(24, 90, 202);
+}

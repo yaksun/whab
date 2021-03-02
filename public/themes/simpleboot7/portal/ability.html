@@ -1,0 +1,151 @@
+<!DOCTYPE html >
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$cateItem.name}</title>
+<include file="public@head"/>
+<link href="__TMPL__/public/assets/css/list.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="__TMPL__/public/assets/css/ability.css">
+</head>
+<body>
+    <div class="main" >
+    <include file="public@nav"/>
+    <div class="container container_col">
+      <div class="ability-warpper">
+        <div class="header">
+            武汉市保安企业能力评价中心
+        </div>
+        <div class="desc">
+            <div class="desc-left">
+                <div class="desc-top ax_default">
+                    <div class="left-tips">能力评价简介</div>
+                </div>
+                <div class="desc-bottom">
+                    <div class="desc-img"></div>
+                    <div class="desc-content ax_default">
+                        <p>
+                            <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;保安企业能力评价工作是武汉市保安行业协会（以下简称：武安协）为推进保安行业自律机制，规范从业行为、防范和抵御不法侵害，
+                            保护企业合法权益，营造公平、有序、诚信的安保市场环境，经报公安部科信局批准，在全国开展的一项行业自律性工作。
+                            根据武安协能力评价体系文件规定，企业能力按企业规模、工程业绩、管理水平、诚信表现，
+                            设为一级、二级、三级共三个等级。企业采取自愿、免费的方式进行能力证书申报。能力证书每年
+                            年审，每三年进行复评。持能力证书企业在中安协官网上公示，并接受社会监督。
+                        </span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="desc-right">
+                <a href="/">
+                    <img src="__TMPL__/public/assets/images/new/u1731.jpg"  >
+                </a>
+            </div>
+        </div>
+        <div class="process">
+            <div class="process-header ax_default">
+                <div class="left-tips">评价流程</div>
+            </div>
+            <div class="process-content">
+                <div class='process-item'>
+                    <img src="__TMPL__/public/assets/images/new/u1739.jpg" >
+                    <div class="ax_default">企业资料自评</div>
+                </div>
+                <div>
+                   <img src="__TMPL__/public/assets/images/new/u1753.png" >
+                </div>
+                <div class='process-item'>
+                    <img src="__TMPL__/public/assets/images/new/u1742.jpg" >
+                    <div class="ax_default">初审机构检查</div>
+                </div>
+                <div>
+                    <img src="__TMPL__/public/assets/images/new/u1753.png" >
+                 </div>
+                <div class='process-item'>
+                    <img src="__TMPL__/public/assets/images/new/u1745.jpg" >
+                    <div class="ax_default">企业网上申报</div>
+                </div>
+                <div>
+                    <img src="__TMPL__/public/assets/images/new/u1753.png" >
+                 </div>
+                <div class='process-item'>
+                    <img src="__TMPL__/public/assets/images/new/u1748.jpg" >
+                    <div class="ax_default">能力评价中心</div>
+                </div>
+                <div>
+                    <img src="__TMPL__/public/assets/images/new/u1753.png" >
+                 </div>
+                <div class='process-item'>
+                    <img src="__TMPL__/public/assets/images/new/u1751.jpg" >
+                    <div class="ax_default">信息公开、自评</div>
+                </div>
+            </div>
+        </div>
+        <div class="detail">
+            <div class="detail-left">
+                <div><img src="__TMPL__/public/assets/images/new/u1758.jpg" ></div>
+                <div><img src="__TMPL__/public/assets/images/new/u1759.jpg" ></div>
+                <div><img src="__TMPL__/public/assets/images/new/u1760.jpg" ></div>
+                <div><img src="__TMPL__/public/assets/images/new/u1761.jpg" ></div>
+                <div><img src="__TMPL__/public/assets/images/new/u1762.jpg" ></div>
+                <div><img src="__TMPL__/public/assets/images/new/u1763.jpg" ></div>
+            </div>
+            <div class="detail-middle">
+                <div class="middle-tab-header ax_default">
+                    <div class="tab-header-active">企业获证</div>
+                    <div>常见问题</div>
+                    <div>技术人员</div>
+                </div>
+                <div class="middle-tab-content">
+                    <div class="tab-content-active">企业获证</div>
+                    <div>常见问题</div>
+                    <div>技术人员</div>
+                </div>
+            </div>
+            <div class="detail-right">
+                <div class="detail-right-title ax_default">
+                    <div class="left-tips">初审机构</div>
+                </div>
+                <div class="detail-right-content">
+                        <div class="col-md-4">
+                            <div class="detail-right-item">江岸区</div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="detail-right-item">江汉区</div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="detail-right-item">武昌区</div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="detail-right-item">汉阳区</div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="detail-right-item">江夏区</div>
+                        </div>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+    <div class="clearfix"></div>
+<include file="public@footer"/>
+<script>
+     $(function(){
+                   //编写代码
+                   $('.middle-tab-header>div').on('click',function () {
+                       // 1.给当前的标题添加样式
+                       $(this).addClass('tab-header-active')
+
+                       // 2.把其他兄弟元素的样式删除
+                       $(this).siblings().removeClass('tab-header-active')
+
+                       // 3.获取当前标题的下标
+                       var oIndex = $(this).index()
+
+                          // 4.给内容区域添加样式
+                       $('.middle-tab-content>div').eq(oIndex).addClass('tab-content-active')
+
+                       //给非当前的元素删除样式
+                       $('.middle-tab-content>div').eq(oIndex).siblings().removeClass('tab-content-active')
+                   })
+               })
+</script>
+</body>
+</html>

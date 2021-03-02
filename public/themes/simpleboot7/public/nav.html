@@ -1,0 +1,257 @@
+
+<div class="header">
+  <img src="__TMPL__/public/assets/images/new/bg.png" alt="">
+  <div class="w-1400 header-warpper">
+    <div class="logo-warpper">
+      <div class="logo-img">
+        <img src="__TMPL__/public/assets/images/new/logo2.png">
+      </div>
+      <div class="title-img">
+        <img src="__TMPL__/public/assets/images/new/wenzi.png" >
+      </div>
+    </div>
+    <?php 
+    $user = '' ;
+    try{
+      if($_COOKIE['user']){
+      $user = $_COOKIE['user'];
+      }
+    }catch(\Exception $e){
+
+    }
+   ?>
+   <if condition="$user">
+    <a class="enter" href="javascript:;">
+      <img src="__TMPL__/public/assets/images/new/enterIcon.png"><i>登录/申请</i>
+    </a>
+    <div class="dropdown enter active">
+      <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+        你好,{$user}
+        <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+        <li><a href="javascript:;" class="logout">退出</a></li>
+      </ul>
+    </div>
+     <else>
+      <a class="enter active" href="javascript:;">
+        <img src="__TMPL__/public/assets/images/new/enterIcon.png"><i>登录/申请</i>
+      </a>
+      
+      <div class="dropdown enter">
+        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+        
+        
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+          <li><a href="javascript:;" class="logout">退出</a></li>
+        </ul>
+      </div>
+     </else>
+   </if>
+  </div>
+</div>
+<div class="nav">
+    <div  id="navul" class="w-1400">
+     <if condition=" $categoryId==='0' ">
+      <div class="col-md-2 active"><a href="/">首页</a></div>
+      <else>
+      <div class="col-md-2"><a href="/">首页</a></div>
+      </else>
+    </if>
+    <foreach name="categorys" item="vo">
+      <if condition="$vo['name']==='考试报名' ">
+        <div class="{$vo.id === $categoryId ? 'col-md-2 active' :'col-md-2' }"><a target="_blank" href="http://gaj.wuhan.gov.cn/fwpt/fwpt/login.jsp">{$vo.name}</a></div>
+        <else>
+        <div class="{$vo.id === $categoryId  ? 'col-md-2 active' :'col-md-2' }"><a  href="{:url('portal/Category/index',array('cid'=>$vo.id))}?page=1">{$vo.name}</a></div>
+        </else>
+      </if>
+    </foreach>
+  </div>
+  </div>
+
+  
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+    <div class="modal-body">
+        <div class="login-class">
+          <div class="form-header">
+              会员登录
+              <i class="iconfont icon-guanbi"></i>
+          </div>
+          <form class="form-horizontal form" id="advform">
+            <div class="form-group">
+              <label for="inputEmail" class="col-sm-3 control-label"><span style="color:red;">*&nbsp;</span>用户名:</label>
+              <div class="col-sm-9">
+              <input type="text" class="form-control" id="inputEmail" placeholder="" name="user">
+              <div class="tips">用户名不能为空!</div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputPassword23" class="col-sm-3 control-label"><span style="color:red;">*&nbsp;</span>密码:</label>
+              <div class="col-sm-9">
+              <input type="text" class="form-control" id="inputPassword23" placeholder="" name="pass">
+              <div class="tips">密码不能为空!</div>
+              </div>
+            </div>
+           
+              <div class="form-group">
+              <label for="inputPassword24" class="col-sm-3 control-label" ><span style="color:red;">*&nbsp;</span>验证码:</label>
+              <div class="col-sm-9 capture">
+                <input type="text" class="form-control" id="inputPassword24" placeholder="" name="captcha" >
+                <img src="/new_captcha.html?height=32&amp;width=150&amp;font_size=18&amp;time=0.68902411127664" onclick="this.src='/new_captcha.html?height=32&amp;width=150&amp;font_size=18&amp;time='+Math.random();" title="换一张" class="captcha captcha-img verify_img" style="cursor: pointer;position:absolute;right:15px;top:1px;">
+                <div class="tips">验证码不能为空!</div>
+              </div>
+              </div>
+            <div class="form-group">
+              <div class="col-sm-6">
+              <button  class="btn btn-default" id="login">登录</button>
+              </div>
+            </div>
+            <div class="form-group" >
+              <div class="col-sm-6">
+              <button  class="btn btn-default openweb">会员申请</button>
+              </div>
+            </div>
+            </form>
+        </div>
+    </div>
+    </div>
+  </div>
+</div>
+
+<div id="browser-modal"><div class="browser-modal-cover"></div><div class="browser-content"><div class="browser-text"><div class="browser-dji-logo"></div><h3 class="browser-text-title">请升级浏览器版本</h3><p class="browser-text-desc">你正在使用旧版本浏览器。请升级浏览器以获得更好的体验。</p></div><div class="browser-list"><div class="browser-item"><a href="//www.google.com/chrome" target="_blank"><div class="browser-pic browser-i-c"></div><h4>Chrome</h4></a></div><div class="browser-item"><a href="//www.firefox.com/" target="_blank"><div class="browser-pic browser-i-f"></div><h4>Firefox</h4></a></div><div class="browser-item"><a href="//www.apple.com/safari/" target="_blank"><div class="browser-pic browser-i-s"></div><h4>Safari</h4></a></div><div class="browser-item"><a href="//www.microsoft.com/en-us/windows/microsoft-edge" target="_blank"><div class="browser-pic browser-i-e"></div><h4>Edge</h4></a></div></div></div><script>(function(){
+  var isIE = navigator.userAgent.toLocaleLowerCase().indexOf('msie') !== -1;
+  if(isIE){
+    document.getElementById('browser-modal').style.display='block';
+  }
+})();</script></div>
+
+<script>
+
+     var status = ''
+
+        $(".login-class button[id='login']").attr("disabled",true);
+        $('.link span').click(function (e) {
+        e.stopPropagation(); //阻止冒泡
+        $('.linkList').slideToggle(200);
+        })
+        $('.linkList a').click(function () {
+            $(this).parents('.linkList').siblings('span').text($(this).text())
+            $('.linkList').slideUp(200);
+        })
+        $(document).on('click', function () {
+            var linkType = $(".linkList").css('display');
+            if (linkType == 'block') {
+                $(".linkList").slideUp();
+            }
+        })
+
+    
+       $('.form-warpper .form-control').focus(function(){
+          $(this).blur(function(){
+              if(!$(this).val()){
+                // console.log($(this).parent().children('.tips'))
+                $(this).parent().children('.tips').addClass('active');
+              }else{
+                $(this).parent().children('.tips').removeClass('active');
+              }
+          })
+       })
+		$('.login-class .form-control').focus(function(){
+          $(this).blur(function(){
+              if(!$(this).val()){
+                // console.log($(this).parent().children('.tips'))
+                $(this).parent().children('.tips').addClass('active');
+              }else{
+                $(this).parent().children('.tips').removeClass('active');
+              }
+          })
+       })
+
+	   $('a.enter').click(function(){
+            $('.login-class .tips').removeClass('active')
+            $("input[name='user']").val('')
+          $("input[name='pass']").val('')
+          $("input[name='captcha']").val('')
+            $('#exampleModal').modal('show')
+	   })
+
+
+	   $('.icon-guanbi').click(function(){
+	    	$('#exampleModal').modal('hide')
+        $("input[name='user']").val('')
+        $("input[name='pass']").val('')
+        $("input[name='captcha']").val('')
+        $(".login-class button[id='login']").attr("disabled",true);
+	   })
+
+     $("input[name='user']").bind('input propertychange',function(){
+       status = $("input[name='user']").val() &&  $("input[name='pass']").val() &&  $("input[name='captcha']").val()
+        if(status){
+          $(".login-class button[id='login']").removeAttr("disabled")
+        }else{
+          $(".login-class button[id='login']").attr("disabled",true);
+        }
+     })
+     $("input[name='pass']").bind('input propertychange',function(){
+      status = $("input[name='user']").val() &&  $("input[name='pass']").val() &&  $("input[name='captcha']").val()
+        if(status){
+          $(".login-class button[id='login']").removeAttr("disabled")
+        }else{
+          $(".login-class button[id='login']").attr("disabled",true);
+        }
+     })
+     $("input[name='captcha']").bind('input propertychange',function(){
+      status = $("input[name='user']").val() &&  $("input[name='pass']").val() &&  $("input[name='captcha']").val()
+        if(status){
+          $(".login-class button[id='login']").removeAttr("disabled")
+        }else{
+          $(".login-class button[id='login']").attr("disabled",true);
+        }
+     })
+
+       $('.openweb').click(function(event){
+        event.preventDefault()
+        window.open("/portal/form/index/cid/11/sid/110.html", "_self");
+       })
+
+       
+       $('#login').click(function(event){
+        event.preventDefault()
+        var formData = new FormData(document.getElementById("advform"));
+     
+        $.ajax({
+          type : "POST",//请求方式,post请求 ,可以改成get请求
+
+          url : '/portal/login/index',//后台请求地址
+        
+          data:formData,
+          cache: false,        // 不缓存数据
+          processData: false,  // 不处理数据
+          contentType: false,   // 不设置内容类型
+          success:function(res){
+            if(res.code==1){
+              $('#exampleModal').modal('hide')
+              $('div.enter>button').html('你好,'+ $("input[name='user']").val()+'<span class="caret"></span>')
+              setCookie('user',$("input[name='user']").val(),1)
+              $('a.enter').removeClass('active')
+              $('div.enter').addClass('active')
+            }else{
+              layer.alert(res.msg);
+            }
+          }
+        })
+       })
+
+       $('.logout').click(function(){
+        setCookie('user','',-1)
+        $('a.enter').addClass('active')
+        $('div.enter').removeClass('active')
+       })
+	
+</script>
+
+
+ 
