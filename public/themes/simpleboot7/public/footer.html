@@ -1,3 +1,4 @@
+<a class="backTop_Z" id="backTop"  href="javascript:void(0);" ></a>
 <div class="footer">
     <div class="footTop">
         <div class="w-1400">
@@ -5,24 +6,24 @@
                 <img style="width:125px;" class="footLogo" src="/themes/simpleboot7/public/assets/images/new/logo2.png">
                 <div class="footList2">
                    <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-md-4 col-sm-4 item">
                         <a href="/portal/list/index/cid/19/sid/104.html">协会简介</a>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-4 col-sm-4 item">
                         <a href="/portal/list/index/cid/19/sid/105.html?page=1">协会章程</a>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-4 col-sm-4 item">
                         <a href="/portal/list/index/cid/20/sid/112.html?page=1">会费标准</a>
                     </div>
                    </div>
                    <div class="row">
-                       <div class="col-md-4">
+                       <div class="col-md-4 col-sm-4 item">
                         <a href="/portal/list/index/cid/29/sid/42.html?page=1">下载中心</a>
                        </div>
-                       <div class="col-md-4">
+                       <div class="col-md-4 col-sm-4 item">
                         <a href="/portal/list/index/cid/11/sid/110.html?page=1">入会申请</a>
                        </div>
-                       <div class="col-md-4">
+                       <div class="col-md-4 col-sm-4 item">
                         <a href="/portal/list/index/cid/22/sid/189.html?page=1">协会服务</a>
                        </div>
                    </div>
@@ -36,7 +37,7 @@
                     <p>地址：武汉市汉阳区江城大道欣隆壹号公馆5B11楼</p>
 
                     <p>电话：027-59397715</p>
-                    <p>手机号：18971553999</p>
+                    <p>手机号：13317176920</p>
 
                     <p>E-mail：44233870@qq.com</p>
                 </div>
@@ -86,4 +87,38 @@
             $(".linkList").slideUp();
         }
     })
+
+    window.onscroll=function(){
+    var winTop_1=document.documentElement.scrollTop;
+    var winTop_2=document.body.scrollTop;
+    var winTop;
+    (winTop_1>winTop_2)?winTop=winTop_1:winTop=winTop_2;
+    if(winTop>0){
+        $("#backTop").css({'display':'block'});
+    }
+    if(winTop == 0){
+        $("#backTop").css({'display':'none'});
+    }
+    }
+
+    $('#backTop').click(function(){
+        backTop()
+    })
+
+    // function scrollToTop(){
+    //     var fromTopDistance = document.documentElement.scrollTop || document.body.scrollTop;
+    //     if (fromTopDistance > 0) {
+    //     window.requestAnimationFrame(scrollToTop);
+    //     window.scrollTo(0, fromTopDistance - fromTopDistance/ 8);
+    //     }
+    // }
+
+
+    function backTop(){
+	//document.documentElement.scrollTop=0;
+        $("html,body").animate({scrollTop:0},1000); ;
+    }
+
+
+
 </script>

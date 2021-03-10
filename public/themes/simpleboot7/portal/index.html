@@ -1,13 +1,14 @@
 <!DOCTYPE html >
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>首页 {$site_info.site_name|default=''}</title>
+	
+<title>{$site_info.site_name|default='首页'}</title>
 <include file="public@head"/>
+
  <link href="__TMPL__/public/assets/css/slippry/slippry.css" rel="stylesheet">
 <link rel="stylesheet" href="__TMPL__/public/assets/css/banner.css">
 <script src="__TMPL__/public/assets/js/banner.js"></script>
 </head>
-<body>
+<body class="hidden-class">
 <include file="public@nav"/>
 
 <div class="banner-warpper">
@@ -39,37 +40,38 @@
 		</div>
 	</div>
 	<div class="detail">
-		<div class="item on" style="overflow: hidden;" >
+		<div class="item on" style="overflow: hidden;">
 			<!-- 协会要闻 -->
-			  <ul class="marquee-warpper" id="marquee9">
-				  <foreach name="associationNews" item="vo">
-					<li>
-						<a  href="{:url('portal/Article/index?',array('sid'=>$vo.id,'id'=>$vo.post_id))}">
-						  <div class="detail-top">
-						  <img class="img" src="{:cmf_get_image_url($vo['thumbnail'])}" >
-						  </div>
-						  <div class="text">
-							  <div class="tit">
-								  <div class="time">
-									  <span><?php  echo date('m/d',$vo['published_time']); ?></span>
-									  <span><?php  echo date('Y',$vo['published_time']); ?></span>
-								  </div> 
-								  <div class="textWrap-one">
-									  {$vo['post_title']}
-								  </div>
-							  </div>
-							  <p class="textWrap-two">{$vo['post_excerpt']}</p>
-							  <i class="tran400"></i>
-						  </div>
-					  </a>
-					</li>
-				  </foreach>
-			  </ul>
+			<div class="xNew-box swiper-container-horizontal">
+				<ul class="marquee-warpper swiper-wrapper" >
+					<foreach name="associationNews" item="vo">
+					  <li class="swiper-slide">
+						  <a  href="{:url('portal/Article/index?',array('sid'=>$vo.id,'id'=>$vo.post_id))}">
+							<div class="detail-top">
+							<img class="img" src="{:cmf_get_image_url($vo['thumbnail'])}" >
+							</div>
+							<div class="text">
+								<div class="tit">
+									<div class="time">
+										<span><?php  echo date('m/d',$vo['published_time']); ?></span>
+										<span><?php  echo date('Y',$vo['published_time']); ?></span>
+									</div> 
+									<div class="textWrap-one">
+										{$vo['post_title']}
+									</div>
+								</div>
+								<p class="textWrap-two">{$vo['post_excerpt']}</p>
+								<i class="tran400"></i>
+							</div>
+						</a>
+					  </li>
+					</foreach>
+				</ul>
+			</div>
 			</div>
 		  <div class="tNew item">
 			  <ul class="common-item left">
 				  <foreach name="announcementsList" item="vo" key="index">
-					 
 						<li><a href="{:url('portal/Article/index?',array('sid'=>$vo.id,'id'=>$vo.post_id))}">
 							<div class="time">
 								<b><?php  echo date('d',$vo['published_time']); ?></b><span><?php  echo date('Y-m',$vo['published_time']); ?></span>
@@ -83,30 +85,13 @@
 								<b><?php  echo date('d',$vo['published_time']); ?></b><span><?php  echo date('Y-m',$vo['published_time']); ?></span>
 							  </div><p class="textWrap-two">  {$vo['post_title']}</p></a></li>
 					</foreach>
+				
 			  </ul>
 		  </div>
 	</div>
   </div>
   <!--第一部分图片新闻结束-->
-<script>
-	$('.indexTitle >.cn> span').click(function(){
-		$(this).addClass('on')
-		$(this).siblings().removeClass('on')
 
-		var index = $(this).index() 
-		var dom = $('.detail>.item').eq(index)
-
-		$(dom).addClass('on')
-		$(dom).siblings().removeClass('on')
-
-		var link = $('.indexMore> a').eq(index)
-		$(link).addClass('on')
-		$(link).siblings().removeClass('on')
-
-	})
-
-	
-</script>
 <div class="w-1400 newBottom">
 <div class="item animate" data-animate="fadeInLeft" data-duration="1.0s" data-delay="0.1s" >
 	<div class="tit">
@@ -292,37 +277,82 @@
 <script src="__TMPL__/public/assets/js/slippry.min.js"></script>
 <script src="__TMPL__/public/assets/js/jquery.bxslider.js"></script>
 <script src="__TMPL__/public/assets/js/scrolla.jquery.min.js"></script>
+<script src="__TMPL__/public/assets/js/swiper.js"></script>
+
 
 <script>
-	function slide(){
-		var width = $('.detail').width()
-		var n=3
 
-		if(width<1000){
-			n = 2
-		}else if(width<500){
-			n=1
+			var windowWidth = $(window).width();
+			var swiper
+					if (windowWidth > 1200) {
+						 swiper = new Swiper('.xNew-box', {
+							speed: 600,
+							loop: true,
+							slidesPerView: 3,
+							slidesPerGroup: 1,
+							spaceBetween: 29,
+							autoplay: {
+								delay: 2500,
+								disableOnInteraction: false,
+							}
+						});
+					} else if (windowWidth > 767) {
+						 swiper = new Swiper('.xNew-box', {
+							speed: 600,
+							loop: true,
+							slidesPerView: 2,
+							slidesPerGroup: 1,
+							spaceBetween: 20,
+							autoplay: {
+								delay: 2500,
+								disableOnInteraction: false,
+							}
+						});
+					} else {
+						 swiper = new Swiper('.xNew-box', {
+							speed: 600,
+							loop: true,
+							slidesPerView: 1,
+							slidesPerGroup: 1,
+							spaceBetween: 29,
+							autoplay: {
+								delay: 2500,
+								disableOnInteraction: false,
+							}
+						});
+					}
+
+	
+		$('.indexTitle >.cn> span').click(function(){
+		$(this).addClass('on')
+		$(this).siblings().removeClass('on')
+
+		var index = $(this).index() 
+		var dom = $('.detail>.item').eq(index)
+
+
+		$(dom).addClass('on')
+		$(dom).siblings().removeClass('on')
+
+		if(index===0){
+			swiper.autoplay.start()
+		}else{
+			swiper.autoplay.stop()
 		}
-		
-		$('#marquee9').bxSlider({
-			auto: true,
-			pause: 2000, // 间隔时间
-			slideWidth: (width-(n-1)*29)/n,
-			minSlides: 1,
-			maxSlides: n,
-			moveSlides: 1,
-			slideMargin: 29,
-			controls: false,//隐藏左右按钮
-			pager:false,
-			autoHover: true 
-			});
 
+		var link = $('.indexMore> a').eq(index)
+		$(link).addClass('on')
+		$(link).siblings().removeClass('on')
+
+		})
+
+	function slide(){
 
 			$('#indemo9').bxSlider({
 
 			slideWidth: 180,
 
-			minSlides: 4,
+			minSlides: 1,
 
 			maxSlides: 8,
 
@@ -346,7 +376,7 @@
 	})
 
 	$('.animate').scrolla({
-      mobile: false, // disable animation on mobiles 
+      mobile: true, // disable animation on mobiles 
       once: false // only once animation play on scroll
   });
 

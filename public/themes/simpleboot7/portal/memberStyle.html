@@ -42,7 +42,7 @@
                       <img src="{:cmf_get_image_url($vo.thumbnail)} ">
                     </div> -->
                     <div class="right-content">
-                     <span class="title">{$vo.post_title}</span><span class="time">发布时间:<?php  echo date('Y-m-d H:i:s',$vo['published_time']); ?></span>
+                     <span class="title">{$vo.post_title}</span><span class="time">发布时间:<?php  echo date('Y-m-d',$vo['published_time']); ?></span>
                     <div style="margin-top: 20px;" class="new-class">
                     <div>
                       <?php  
@@ -93,7 +93,7 @@
                   </div>
               </div>
           </div>
-          <div style="height: 48px;"></div>
+          <div style="height: 48px;" class="fixed-class"></div>
              <?php 
               $dotlist = [] ;
               try{

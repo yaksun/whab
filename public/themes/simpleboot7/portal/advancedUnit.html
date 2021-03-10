@@ -23,7 +23,7 @@
               </div>
             </div>
         </div>
-        <div style="height: 48px;"></div>
+        <div style="height: 48px;" class="fixed-class"></div>
          <div class="advancedUnit-class">
            <div class="advance-top">
              <img src="__TMPL__/public/assets/images/new/u893.jpg" >
@@ -37,7 +37,7 @@
                       </div>  
                       <div class="advance-content">
                         <foreach name="$vo['list']" item='mini'>
-                           <div class="col-md-4">
+                           <div class="col-md-4 col-sm-6 col-xs-12 item">
                             {$mini.name}
                            </div>
                         </foreach>
@@ -49,7 +49,7 @@
                         </div>  
                         <div class="advance-content">
                           <foreach name="$vo['list']" item='mini'>
-                            <div class="col-md-4">
+                            <div class="col-md-4 col-sm-6 col-xs-12 item">
                               {$mini.name}
                               <if condition="!empty($mini['description'])">
                                <span class="title-desc2">({$mini['description']})</span>

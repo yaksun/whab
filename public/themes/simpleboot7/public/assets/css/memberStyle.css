@@ -85,20 +85,27 @@
 }
 
 
-.member-item .right-content .title{
+.member-content .member-item .right-content .title{
     font-family: 'Arial Black', 'Arial Normal', 'Arial';
     font-weight: 900;
     font-size: 18px;
     color: #666;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    height: 30px;
+    line-height: 30px;
 }
-.member-item .right-content .time{
+.member-content .member-item .right-content .time{
     font-family: 'Arial Normal', 'Arial';
     font-weight: 400;
     font-size: 14px;
     float: right;
 }
 
-.member-item .right-content .new-class>a{
+.member-content .member-item .right-content .new-class>a{
     font-family: 'Arial Normal', 'Arial';
     font-weight: 400;
     text-decoration: underline;

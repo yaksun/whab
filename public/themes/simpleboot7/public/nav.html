@@ -1,75 +1,144 @@
-
 <div class="header">
-  <img src="__TMPL__/public/assets/images/new/bg.png" alt="">
+  <img src="__TMPL__/public/assets/images/new/bg.png" class="header-img">
   <div class="w-1400 header-warpper">
     <div class="logo-warpper">
-      <div class="logo-img">
-        <img src="__TMPL__/public/assets/images/new/logo2.png">
+      <div class="left">
+        <div class="logo-img">
+          <img src="__TMPL__/public/assets/images/new/logo2.png">
+        </div>
+        <div class="title-img">
+          <img src="__TMPL__/public/assets/images/new/wenzi.png" >
+        </div>
       </div>
-      <div class="title-img">
-        <img src="__TMPL__/public/assets/images/new/wenzi.png" >
-      </div>
-    </div>
-    <?php 
-    $user = '' ;
-    try{
-      if($_COOKIE['user']){
-      $user = $_COOKIE['user'];
+      <?php 
+      $user = '' ;
+      try{
+        if($_COOKIE['user']){
+        $user = $_COOKIE['user'];
+        }
+      }catch(\Exception $e){
+  
       }
-    }catch(\Exception $e){
-
-    }
-   ?>
-   <if condition="$user">
-    <a class="enter" href="javascript:;">
-      <img src="__TMPL__/public/assets/images/new/enterIcon.png"><i>登录/申请</i>
-    </a>
-    <div class="dropdown enter active">
-      <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-        你好,{$user}
-        <span class="caret"></span>
-      </button>
-      <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-        <li><a href="javascript:;" class="logout">退出</a></li>
-      </ul>
-    </div>
-     <else>
-      <a class="enter active" href="javascript:;">
-        <img src="__TMPL__/public/assets/images/new/enterIcon.png"><i>登录/申请</i>
-      </a>
-      
-      <div class="dropdown enter">
-        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-        
-        
-        </button>
-        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-          <li><a href="javascript:;" class="logout">退出</a></li>
-        </ul>
+     ?>
+     <if condition="$user">
+      <div class="right">
+        <div class="navIcon">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div class="link-add">
+          <a class="enter" href="javascript:;">
+            <img src="__TMPL__/public/assets/images/new/enterIcon.png"><i>登录/申请</i>
+          </a>
+          <div class="dropdown enter active">
+            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              <!-- {$user} -->
+              <img class="pc" src="__TMPL__/public/assets/images/new/enterIcon.png"><i class="pc">{$user}</i>
+              <i class="iconfont icon-yidenglu"></i>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+              <li><a href="javascript:;" class="logout">退出</a></li>
+            </ul>
+          </div>
+        </div>
       </div>
-     </else>
-   </if>
-  </div>
+       <else>
+        <div class="right">
+          <div class="navIcon" >
+            <span></span>
+            <span></span>
+            <span></span>
+            </div>
+            <div class="link-add">
+              <a class="enter active" href="javascript:;">
+                <img src="__TMPL__/public/assets/images/new/enterIcon.png"><i>登录/申请</i>
+              </a>
+              
+              <div class="dropdown enter">
+                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                
+                
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                  <li><a href="javascript:;" class="logout">退出</a></li>
+                </ul>
+              </div>
+            </div>
+        </div>
+       </else>
+     </if>
+    </div>
+   
+   </div>
+   <script>
+     $('.navIcon').click(function(){
+       if($(this).hasClass('on')){
+        $(this).removeClass('on')
+       }else{
+        $(this).addClass('on')
+       }
+
+       var navStat = $(".navBox").css('display');
+        if (navStat == 'none') {
+            $(".navBox").slideDown();
+            $(this).addClass('on');
+        } else {
+            $(".navBox").slideUp();
+            $(this).removeClass('on');
+        }
+
+     
+      //  if($('.hidden-class').hasClass('on')){
+      //   $('.hidden-class').removeClass('on')
+      //  }else{
+      //   $('.hidden-class').addClass('on') 
+      //  }
+     })
+   </script>
 </div>
 <div class="nav">
     <div  id="navul" class="w-1400">
      <if condition=" $categoryId==='0' ">
-      <div class="col-md-2 active"><a href="/">首页</a></div>
+      <div class="col-md-2 col-sm-3 item active"><a href="/">首页</a></div>
       <else>
-      <div class="col-md-2"><a href="/">首页</a></div>
+      <div class="col-md-2 col-sm-3 item"><a href="/">首页</a></div>
       </else>
     </if>
     <foreach name="categorys" item="vo">
       <if condition="$vo['name']==='考试报名' ">
-        <div class="{$vo.id === $categoryId ? 'col-md-2 active' :'col-md-2' }"><a target="_blank" href="http://gaj.wuhan.gov.cn/fwpt/fwpt/login.jsp">{$vo.name}</a></div>
+        <div class="{$vo.id === $categoryId ? 'col-md-2 col-sm-3 item active' :'col-md-2 col-sm-3 item' }"><a target="_blank" href="http://gaj.wuhan.gov.cn/fwpt/fwpt/login.jsp">{$vo.name}</a></div>
         <else>
-        <div class="{$vo.id === $categoryId  ? 'col-md-2 active' :'col-md-2' }"><a  href="{:url('portal/Category/index',array('cid'=>$vo.id))}?page=1">{$vo.name}</a></div>
+        <div class="{$vo.id === $categoryId  ? 'col-md-2 col-sm-3 item active' :'col-md-2 col-sm-3 item' }"><a  href="{:url('portal/Category/index',array('cid'=>$vo.id))}?page=1">{$vo.name}</a></div>
         </else>
       </if>
     </foreach>
   </div>
   </div>
-
+  <div class="navBox" >
+    <div class="w-1400">
+        <ul class="nav2">
+          <if condition=" $categoryId==='0' ">
+            <li>
+              <a class="item active" href="/">首页</a>
+            </li>
+            <else>
+              <li>
+                <a class="item" href="/">首页</a>
+              </li>
+            </else>
+          </if>
+            <foreach name="categorys" item="vo2">
+              <if condition="$vo2['name']==='考试报名' ">
+                <li><a  class="{$vo2.id === $categoryId ? 'item active' :'item' }" target="_blank" href="http://gaj.wuhan.gov.cn/fwpt/fwpt/login.jsp">{$vo2.name}</a></li>
+                <else>
+                <li><a class="{$vo2.id === $categoryId ? 'item active' :'item' }" href="{:url('portal/Category/index',array('cid'=>$vo2.id))}?page=1">{$vo2.name}</a></li>
+                </else>
+              </if>
+            </foreach>
+      </ul>
+    </div>
+</div>
   
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
   <div class="modal-dialog" role="document">
@@ -82,35 +151,35 @@
           </div>
           <form class="form-horizontal form" id="advform">
             <div class="form-group">
-              <label for="inputEmail" class="col-sm-3 control-label"><span style="color:red;">*&nbsp;</span>用户名:</label>
-              <div class="col-sm-9">
+              <label for="inputEmail" class="col-sm-3 col-xs-3 control-label"><span style="color:red;">*&nbsp;</span>用户名:</label>
+              <div class="col-sm-9 col-xs-9">
               <input type="text" class="form-control" id="inputEmail" placeholder="" name="user">
               <div class="tips">用户名不能为空!</div>
               </div>
             </div>
             <div class="form-group">
-              <label for="inputPassword23" class="col-sm-3 control-label"><span style="color:red;">*&nbsp;</span>密码:</label>
-              <div class="col-sm-9">
+              <label for="inputPassword23" class="col-sm-3 col-xs-3 control-label"><span style="color:red;">*&nbsp;</span>密码:</label>
+              <div class="col-sm-9 col-xs-9">
               <input type="text" class="form-control" id="inputPassword23" placeholder="" name="pass">
               <div class="tips">密码不能为空!</div>
               </div>
             </div>
            
               <div class="form-group">
-              <label for="inputPassword24" class="col-sm-3 control-label" ><span style="color:red;">*&nbsp;</span>验证码:</label>
-              <div class="col-sm-9 capture">
+              <label for="inputPassword24" class="col-sm-3 col-xs-3 control-label" ><span style="color:red;">*&nbsp;</span>验证码:</label>
+              <div class="col-sm-9 col-xs-9 capture">
                 <input type="text" class="form-control" id="inputPassword24" placeholder="" name="captcha" >
                 <img src="/new_captcha.html?height=32&amp;width=150&amp;font_size=18&amp;time=0.68902411127664" onclick="this.src='/new_captcha.html?height=32&amp;width=150&amp;font_size=18&amp;time='+Math.random();" title="换一张" class="captcha captcha-img verify_img" style="cursor: pointer;position:absolute;right:15px;top:1px;">
                 <div class="tips">验证码不能为空!</div>
               </div>
               </div>
             <div class="form-group">
-              <div class="col-sm-6">
+              <div class="col-sm-6 col-xs-6">
               <button  class="btn btn-default" id="login">登录</button>
               </div>
             </div>
             <div class="form-group" >
-              <div class="col-sm-6">
+              <div class="col-sm-6 col-xs-6">
               <button  class="btn btn-default openweb">会员申请</button>
               </div>
             </div>
@@ -131,6 +200,7 @@
 <script>
 
      var status = ''
+     var windowWidth = $(window).width();
 
         $(".login-class button[id='login']").attr("disabled",true);
         $('.link span').click(function (e) {
@@ -234,7 +304,11 @@
           success:function(res){
             if(res.code==1){
               $('#exampleModal').modal('hide')
-              $('div.enter>button').html('你好,'+ $("input[name='user']").val()+'<span class="caret"></span>')
+              if(windowWidth<768){
+                $('div.enter>button').html('<i class="iconfont icon-yidenglu"></i>')
+              }else{
+               $('div.enter>button').html('<img class="pc" src="__TMPL__/public/assets/images/new/enterIcon.png"><i class="pc">'+$("input[name='user']").val()+'</i>')
+              }
               setCookie('user',$("input[name='user']").val(),1)
               $('a.enter').removeClass('active')
               $('div.enter').addClass('active')

@@ -3,7 +3,7 @@
     flex-direction: column;
     justify-content: space-between;
 }
-.ability-warpper .header{
+.ability-warpper .ability-header{
     height: 100px;
     line-height: 100px;
     text-align: center;

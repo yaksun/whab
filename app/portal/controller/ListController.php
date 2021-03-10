@@ -61,21 +61,22 @@ class ListController extends HomeBaseController
         $categorylist = $portalCategoryModel->where('parent_id', $cateid) ->where('delete_time', 0)->select();
 
         $activecate = $portalCategoryModel->where('id', $id) ->where('delete_time', 0)->find();
+        if($cateItem['name']==='会员名录'){
+            $pageSize=8;
+        }
+       
         
         $catecount =  $portalCategoryModel
         ->order('id') ->where('parent_id',$id)
         ->where('delete_time', 0)
-        ->limit(($page-1)* $pageSize , $pageSize)
         ->select();
+
 
         // foreach($categorylist as $key=>$val) {
         //     print($val['id']);
         //     }
             
-        if($cateItem['name']==='会员名录'){
-            $pageSize=12;
-        }
-
+     
         $list;
         $allList;
         if($mid===-1){
@@ -123,7 +124,6 @@ class ListController extends HomeBaseController
 
        
 
-             //   var_dump($activecate['id']);  
         $this->assign('categorylist', $categorylist);
         $this->assign('categoryId',$cateid);
         $this->assign('activecate',$activecate);
@@ -143,7 +143,9 @@ class ListController extends HomeBaseController
             // 党建之窗、保安风采、通知公告、行业动态、企业文化、业务咨询、学习园地、下载中心
             return $this->fetch('/list2');
         }elseif($cateItem['name']==='会员名录'){
-            $catelist = $portalCategoryModel->where('parent_id', $id) ->where('delete_time', 0)->select();
+            $catelist = $portalCategoryModel->where('parent_id', $id) ->where('delete_time', 0)
+            ->limit(($page-1)* $pageSize , $pageSize)
+            ->select();
             // foreach($catelist as $k=>$v){
             //     var_dump($v);
             // }

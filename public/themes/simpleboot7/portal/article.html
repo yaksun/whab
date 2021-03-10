@@ -18,7 +18,7 @@
               <div  class="current" >{$cateItem.name}</div>
             </div>
         </div>
-        <div style="height: 48px;"></div>
+        <div style="height: 48px;" class="fixed-class"></div>
         <ul class="cate-list">
           <foreach name='categorylist' item='vo'>
             <if condition="$vo.id===$activecate.id">
@@ -41,7 +41,7 @@
               </div>
             </div>
         </div>
-        <div style="height: 48px;"></div>
+        <div style="height: 48px;" class="fixed-class"></div>
             <section class="article-warpper">
                 <div class="title">
                   <div>{$article.post_title}</div>
@@ -80,7 +80,7 @@
                 <div class="article-nav ax_default">
                  <div class="nav-list">
                   <if condition="!empty($prev_article)">
-                    <a class="left" href="{:url('portal/Article/index?',array('sid'=>$activecate.id,'id'=>$prev_article.id))}">
+                    <a class="item left" href="{:url('portal/Article/index?',array('sid'=>$activecate.id,'id'=>$prev_article.id))}">
                       上一条:
                       <?php  
                       $temp;
@@ -95,7 +95,7 @@
                     </a>
                   </if>
                   <if condition="!empty($next_article)">
-                   <a class="right" href="{:url('portal/Article/index?',array('sid'=>$activecate.id,'id'=>$next_article.id))}">
+                   <a class="item right" href="{:url('portal/Article/index?',array('sid'=>$activecate.id,'id'=>$next_article.id))}">
                     下一条:
                     <?php  
                     $temp;
@@ -121,6 +121,16 @@
 <include file="public@footer"/>
 
 <script>
+  (
+    function(){
+      var winWidth = $('window').width() 
+      if(winWidth<768){
+        if( $("table")){
+        $("table").wrap("<p class='table-warpper'></p>");
+        }
+      }
+    }
+  )();
    function  setCookie(name,val,iDay){
             var oDate = new Date()
 

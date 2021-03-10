@@ -15,7 +15,7 @@
           <div class="news-name tab-nav">
             <div  class="current" >当前位置 > 
               <a href="/">首页</a> > 
-              <a  href="{:url('portal/Category/index',array('cid'=>$father.id))}?page=1">会员风貌</a> >
+              <a  href="{:url('portal/Category/index',array('cid'=>$father.id))}?page=1">会员名录</a> >
               <a  href="{:url('portal/List/index?',array('cid'=>$father.id,'sid'=>$parentItem.id))}?page=1">{$parentItem.name}</a> > 
               <a href="{:url('portal/article/index',array('sid'=>$parentItem.id,'id'=>$articleId))}" class="active">{$cateItem.name}</a>
               </div>
@@ -63,7 +63,7 @@
               </div>
             </div>
             <div class="wfxm-bottom">
-            
+              <div class="wfxm-warpper" style="width: 1400px;">
                 <ul id="marquee">
                   <foreach name="$vo['list']" item="mini">
                     <li>
@@ -72,6 +72,8 @@
                     </li>
                   </foreach>
                   </ul>
+              </div>
+              
             </div>
           </div>
         </if>
@@ -88,14 +90,16 @@
               </div>
              </div>
              <div class="ryzz-bottom">
-              <ul id="marquee2">
-                <foreach name="$vo['list']" item="mini">
-                  <li>
-                    <img src="{:cmf_get_image_url($mini['more']['thumbnail'])}" alt="banner_1" >
-                    <p>{$mini['name']}</p>
-                  </li>
-                </foreach>
-                </ul>
+              <div class="ryzz-list" style="width: 1400px;">
+                <ul id="marquee2">
+                  <foreach name="$vo['list']" item="mini">
+                    <li>
+                      <img src="{:cmf_get_image_url($mini['more']['thumbnail'])}" alt="banner_1" >
+                      <p>{$mini['name']}</p>
+                    </li>
+                  </foreach>
+                  </ul>
+              </div>
              </div>
            </div>
           </div>
@@ -112,14 +116,16 @@
                 </div>
               </div>
               <div class="khal-bottom">
-                <ul id="marquee3">
-                  <foreach name="$vo['list']" item="mini">
-                    <li>
-                      <img src="{:cmf_get_image_url($mini['more']['thumbnail'])}" alt="banner_1" >
-                      <p>{$mini['name']}</p>
-                    </li>
-                  </foreach>
-                  </ul>
+                <div class="khal-warpper" style="width: 1400px;">
+                  <ul id="marquee3">
+                    <foreach name="$vo['list']" item="mini">
+                      <li>
+                        <img src="{:cmf_get_image_url($mini['more']['thumbnail'])}" alt="banner_1" >
+                        <p>{$mini['name']}</p>
+                      </li>
+                    </foreach>
+                    </ul>
+                </div>
               </div>
           </div>
         </if>
@@ -137,19 +143,19 @@
             <div class="lxwm-bottom animate" data-animate="bounceIn" data-duration="1.0s" data-delay="0.1s">
               <foreach name="$vo['list']" item="contact">
                <if condition="$contact['name']==='电话号码'">
-                <p><i class="iconfont icon-dianhuazuoji"></i> 电话号码:{$contact['description']}</p>
+                <p><i class="iconfont icon-dianhuazuoji"></i> 电话号码:&nbsp;&nbsp;{$contact['description']}</p>
                </if>
                <if condition="$contact['name']==='传真号码'">
-                <p><i class="iconfont icon-chuanzhen1"></i> 传真号码:{$contact['description']}</p>
+                <p><i class="iconfont icon-chuanzhen1"></i> 传真号码:&nbsp;&nbsp;{$contact['description']}</p>
                </if>
                <if condition="$contact['name']==='联系人'">
-                <p><i class="iconfont icon-geren"></i> 联系人:{$contact['description']}</p>
+                <p><i class="iconfont icon-geren"></i> 联系人:&nbsp;&nbsp;{$contact['description']}</p>
                </if>
                <if condition="$contact['name']==='邮箱'">
-                <p><i class="iconfont icon-youxiang"></i> 邮箱:{$contact['description']}</p>
+                <p><i class="iconfont icon-youxiang"></i> 邮箱:&nbsp;&nbsp;{$contact['description']}</p>
                </if>
                <if condition="$contact['name']==='公司地址'">
-                <p><i class="iconfont icon-dizhi1"></i> 公司地址:{$contact['description']}</p>
+                <p><i class="iconfont icon-dizhi1"></i> 公司地址:&nbsp;&nbsp;{$contact['description']}</p>
                </if>
               </foreach>
             </div>
@@ -169,12 +175,13 @@
 
   $(function(){
         $('#marquee').bxSlider({
+        captions: true,
 
             auto: true,
             pause: 2000, // 间隔时间
             slideWidth: 320,
 
-            minSlides: 2,
+            minSlides: 1,
 
             maxSlides: 4,
 
@@ -192,7 +199,7 @@
             pause: 2000, // 间隔时间
             slideWidth: 280,
 
-            minSlides: 2,
+            minSlides: 1,
 
             maxSlides: 4,
 
@@ -210,7 +217,7 @@
             pause: 2000, // 间隔时间
             slideWidth: 320,
 
-            minSlides: 2,
+            minSlides: 1,
 
             maxSlides: 4,
 

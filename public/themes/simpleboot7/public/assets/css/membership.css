@@ -7,6 +7,11 @@
 .membership-warpper{
     padding: 10px 60px;
 }
+.membership-warpper table{
+     margin: 0 auto;
+}
+.membership-warpper  table th,.membership-warpper  table td{ border:1px solid #eee;}
+
 .membership-warpper  p >span{
     line-height: 1.8em;
 }
@@ -18,7 +23,7 @@
     font-family: 'Arial Black', 'Arial Normal', 'Arial';
     font-weight: 900;
     color: #185ACA;
-    font-size: 20px;
+    font-size: 24px;
     text-align: center;
     margin-bottom: 15px;
 }

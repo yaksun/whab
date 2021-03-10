@@ -31,7 +31,7 @@ class IndexController extends HomeBaseController
        ->select();
         $this->assign('categorys', $categorys);
 
-      //    协会要闻
+      //  协会要闻
         $this->getAssociationNews();
 
         // 通知公告
@@ -100,9 +100,12 @@ class IndexController extends HomeBaseController
          }
 
          $rightAnnouncementsList =  $temp;
-         if(count($announcementsList)>4){
+         if(count($announcementsList)>=4){
             $rightAnnouncementsList = array_slice($temp,4);
             $announcementsList = array_slice($temp,0,4);
+         }else{
+            $announcementsList = $this->changeList($announcementsList,4);
+            $rightAnnouncementsList = $this->changeList($rightAnnouncementsList,4);
          }
 
          $this->assign('announcementsList',$announcementsList);

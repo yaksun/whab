@@ -51,11 +51,12 @@ class CategoryController extends HomeBaseController
 
         $activecate = $portalCategoryModel->where('parent_id', $id) ->where('delete_time', 0)->find();
         $cateItem = $portalCategoryModel->where('id', $id) ->where('delete_time', 0)->find();
-
+       
         if($cateItem['name']==='会员名录'){
-            $pageSize=12;
+            $pageSize=8;
         }
        
+
          $allList = Db::table('cmf_portal_category_post')
         ->alias('a')
         ->join('cmf_portal_post w','a.post_id = w.id')
@@ -118,12 +119,12 @@ class CategoryController extends HomeBaseController
 
             $catelist =  $portalCategoryModel
             ->order('id') ->where('parent_id',$tempCate['id'])
+            ->limit(($page-1)* $pageSize , $pageSize)
             ->where('delete_time', 0)->select();
 
             $catecount =  $portalCategoryModel
             ->order('id') ->where('parent_id',$tempCate['id'])
             ->where('delete_time', 0)
-            ->limit(($page-1)* $pageSize , $pageSize)
             ->select();
 
             // foreach($catelist as $k=>$v){

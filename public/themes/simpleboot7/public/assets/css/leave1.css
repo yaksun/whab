@@ -2,6 +2,7 @@
   position: relative;
   max-width: 1400px;
   margin: auto;
+  height: 48px;
 }
 .leave-warpper .leave-title {
   text-align: center;
@@ -143,11 +144,16 @@
 .leave-warpper .ryzz .ryzz-warpper .ryzz-bottom {
   margin-top: 41px;
 }
+.leave-warpper .ryzz .ryzz-warpper .ryzz-bottom #marquee2 {
+  height: 238px;
+  overflow-y: hidden;
+}
 .leave-warpper .ryzz .ryzz-warpper .ryzz-bottom #marquee2 li {
   width: 280px;
-  height: 245px;
+  height: 240px;
   box-sizing: border-box;
   cursor: pointer;
+  overflow-y: hidden;
 }
 .leave-warpper .ryzz .ryzz-warpper .ryzz-bottom #marquee2 li img {
   display: block;
@@ -156,13 +162,12 @@
 }
 .leave-warpper .ryzz .ryzz-warpper .ryzz-bottom #marquee2 li p {
   text-align: center;
-  height: 24px;
+  height: 60px;
+  line-height: 60px;
   font-size: 20px;
   font-family: Microsoft YaHei;
   font-weight: 400;
   color: #FFFFFF;
-  line-height: 24px;
-  margin: 15px auto;
 }
 .leave-warpper .khal {
   margin: 0 auto;
@@ -230,26 +235,8 @@
   .leave-warpper .lxwm {
     width: 90%;
   }
-  #wfxm .bx-wrapper {
-    max-width: 1040px !important;
-  }
-  #ryzz .bx-wrapper {
-    max-width: 980px !important;
-  }
-  #khal .bx-wrapper {
-    max-width: 1040px !important;
-  }
 }
 @media screen and (max-width: 1023px) {
-  #wfxm .bx-wrapper {
-    max-width: 660px !important;
-  }
-  #ryzz .bx-wrapper {
-    max-width: 630px !important;
-  }
-  #khal .bx-wrapper {
-    max-width: 660px !important;
-  }
   .qywh .qywh-right {
     display: none;
   }

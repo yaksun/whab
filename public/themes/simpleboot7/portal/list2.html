@@ -28,7 +28,7 @@
                 <foreach name='list' item='vo'>
                 <li class="notice-item">
                       <a href="{:url('portal/Article/index?',array('sid'=>$vo.id,'id'=>$vo.post_id))}">
-                        <span>
+                        <span class="detail">
                           <?php  
                           $temp;
                           if(mb_strlen($vo['post_title'])>40){
@@ -40,7 +40,7 @@
                           echo $temp;
                           ?>
                         </span>
-                         <span style="float: right;"><?php  echo date('Y-m-d',$vo['published_time']); ?></span></a>
+                         <span style="text-align: right;"><?php  echo date('Y-m-d',$vo['published_time']); ?></span></a>
                 </li>
                 </foreach>
               </ul>
